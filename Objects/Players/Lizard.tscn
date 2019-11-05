@@ -1,0 +1,49 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Scripts/Player/Player.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/Characters/Bodies/lizard_m_idle_anim_f0.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Characters/Bodies/lizard_m_idle_anim_f1.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Characters/Bodies/lizard_m_idle_anim_f2.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Characters/Bodies/lizard_m_idle_anim_f3.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Characters/Bodies/lizard_m_hit_anim_f0.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/Characters/Bodies/lizard_m_run_anim_f0.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Characters/Bodies/lizard_m_run_anim_f1.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/Characters/Bodies/lizard_m_run_anim_f2.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/Characters/Bodies/lizard_m_run_anim_f3.png" type="Texture" id=10]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 8, 10 )
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "idle",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "hit",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "run",
+"speed": 10.0
+} ]
+
+[node name="Lizard" type="KinematicBody2D"]
+script = ExtResource( 1 )
+speedX = 250
+jumpForce = 500
+gravity = 400
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 0, -4 )
+frames = SubResource( 2 )
+animation = "idle"
+frame = 3
+playing = true
