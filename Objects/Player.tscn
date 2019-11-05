@@ -19,17 +19,17 @@ animations = [ {
 "frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ) ],
 "loop": true,
 "name": "idle",
-"speed": 5.0
+"speed": 10.0
 }, {
-"frames": [ ExtResource( 6 ) ],
+"frames": [ ExtResource( 6 ), ExtResource( 6 ), ExtResource( 6 ), ExtResource( 6 ) ],
 "loop": true,
 "name": "hit",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ) ],
 "loop": true,
 "name": "run",
-"speed": 5.0
+"speed": 10.0
 } ]
 
 [node name="Player" type="KinematicBody2D"]
@@ -45,6 +45,4 @@ shape = SubResource( 1 )
 position = Vector2( 0, -4 )
 frames = SubResource( 2 )
 animation = "idle"
-frame = 2
-speed_scale = 2.0
 playing = true
