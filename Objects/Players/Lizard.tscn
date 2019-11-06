@@ -11,8 +11,9 @@
 [ext_resource path="res://Sprites/Characters/Bodies/lizard_m_run_anim_f2.png" type="Texture" id=9]
 [ext_resource path="res://Sprites/Characters/Bodies/lizard_m_run_anim_f3.png" type="Texture" id=10]
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 8, 10 )
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 6.04267
+height = 8.39227
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
@@ -34,9 +35,6 @@ animations = [ {
 
 [node name="Lizard" type="KinematicBody2D"]
 script = ExtResource( 1 )
-speedX = 250
-jumpForce = 500
-gravity = 400
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
@@ -45,5 +43,5 @@ shape = SubResource( 1 )
 position = Vector2( 0, -4 )
 frames = SubResource( 2 )
 animation = "idle"
-frame = 3
+frame = 2
 playing = true
