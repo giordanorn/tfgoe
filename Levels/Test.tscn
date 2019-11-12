@@ -4,6 +4,7 @@
 [ext_resource path="res://Objects/Players/Knight.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Objects/Players/Lizard.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Objects/Players/Wizard.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Objects/Foes/Orcs/OrcPerseguidor.tscn" type="PackedScene" id=5]
 
 [sub_resource type="CanvasItemMaterial" id=1]
 
