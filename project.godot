@@ -19,10 +19,6 @@ config/name="The Forsaken Gate of Etrata"
 run/main_scene="res://Levels/Test.tscn"
 config/icon="res://icon.png"
 
-[autoload]
-
-GameController="*res://Scripts/GameController.gd"
-
 [locale]
 
 fallback="pt_BR"
