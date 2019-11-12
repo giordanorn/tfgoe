@@ -1,7 +1,6 @@
 extends Node
 
 onready var body = get_parent()
-onready var controller = get_child(0) # TODO: improve this access to controlle child node
 
 export (int) var speed = 100
 export (int) var jump_speed = 200
@@ -15,7 +14,7 @@ func _physics_process(delta):
 	move()
 
 func apply_controller_movement():
-	velocity = controller.get_input(Vector2(0, velocity.y))
+	velocity = $Controller.get_input(Vector2(0, velocity.y))
 
 func apply_gravity(delta):
 	velocity.y += gravity * delta
