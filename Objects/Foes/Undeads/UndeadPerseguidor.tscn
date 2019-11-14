@@ -10,9 +10,8 @@
 [ext_resource path="res://Sprites/Characters/Bodies/tiny_zombie_run_anim_f2.png" type="Texture" id=8]
 [ext_resource path="res://Sprites/Characters/Bodies/tiny_zombie_run_anim_f3.png" type="Texture" id=9]
 
-[sub_resource type="CapsuleShape2D" id=1]
-radius = 6.74715
-height = 3.44941
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 4, 4 )
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
@@ -38,4 +37,4 @@ frames = SubResource( 2 )
 animation = "idle"
 frame = 2
 playing = true
-offset = Vector2( 0, -2 )
+offset = Vector2( 0, -4 )
