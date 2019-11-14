@@ -5,16 +5,15 @@
 [ext_resource path="res://Sprites/Characters/Bodies/knight_m_idle_anim_f1.png" type="Texture" id=3]
 [ext_resource path="res://Sprites/Characters/Bodies/knight_m_idle_anim_f2.png" type="Texture" id=4]
 [ext_resource path="res://Sprites/Characters/Bodies/knight_m_idle_anim_f3.png" type="Texture" id=5]
-[ext_resource path="res://Sprites/Characters/Bodies/knight_m_hit_anim_f0.png" type="Texture" id=6]
-[ext_resource path="res://Sprites/Characters/Bodies/knight_m_run_anim_f0.png" type="Texture" id=7]
-[ext_resource path="res://Sprites/Characters/Bodies/knight_m_run_anim_f1.png" type="Texture" id=8]
-[ext_resource path="res://Sprites/Characters/Bodies/knight_m_run_anim_f2.png" type="Texture" id=9]
-[ext_resource path="res://Sprites/Characters/Bodies/knight_m_run_anim_f3.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/Characters/Bodies/knight_m_run_anim_f0.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/Characters/Bodies/knight_m_run_anim_f1.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Characters/Bodies/knight_m_run_anim_f2.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/Characters/Bodies/knight_m_run_anim_f3.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/Characters/Bodies/knight_m_hit_anim_f0.png" type="Texture" id=10]
 [ext_resource path="res://Utils/KeyboardMovement.tscn" type="PackedScene" id=11]
 
-[sub_resource type="CapsuleShape2D" id=1]
-radius = 6.06816
-height = 7.76373
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 6, 8 )
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
@@ -23,14 +22,14 @@ animations = [ {
 "name": "idle",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 6 ) ],
-"loop": true,
-"name": "hit",
-"speed": 10.0
-}, {
-"frames": [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ) ],
+"frames": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ) ],
 "loop": true,
 "name": "run",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 10 ) ],
+"loop": true,
+"name": "hit",
 "speed": 10.0
 } ]
 
@@ -41,9 +40,10 @@ script = ExtResource( 1 )
 shape = SubResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-position = Vector2( 0, -4 )
+position = Vector2( 0, -6 )
 frames = SubResource( 2 )
 animation = "idle"
+frame = 1
 playing = true
 
 [node name="Movement" parent="." instance=ExtResource( 11 )]
