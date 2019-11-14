@@ -48,12 +48,13 @@ shape = SubResource( 1 )
 position = Vector2( 0, -4 )
 frames = SubResource( 2 )
 animation = "idle"
-frame = 3
 playing = true
 
 [node name="Movement" parent="." instance=ExtResource( 11 )]
 
-[node name="Attack" type="Node2D" parent="."]
+[node name="Attack" type="Node2D" parent="." groups=[
+"player",
+]]
 script = ExtResource( 12 )
 
 [node name="HitArea" type="Area2D" parent="Attack"]
