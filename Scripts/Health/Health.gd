@@ -10,7 +10,7 @@ func set_max_hp(value:int):
 
 func set_current_hp(value:int):
 	if current_hp+value>max_hp:
-		return false
+		current_hp=max_hp
 	else:
 		current_hp=value
 
@@ -37,6 +37,7 @@ func increase_current_hp(value:int):
 
 func increase_max_hp(value:int):
 	max_hp+=value
+	current_hp+=value
 
 func reset_hp():
 	current_hp=0
