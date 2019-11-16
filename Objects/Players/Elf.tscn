@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Scripts/Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Characters/Bodies/elf_m_idle_anim_f0.png" type="Texture" id=2]
@@ -11,7 +11,7 @@
 [ext_resource path="res://Sprites/Characters/Bodies/elf_m_run_anim_f3.png" type="Texture" id=9]
 [ext_resource path="res://Sprites/Characters/Bodies/elf_m_hit_anim_f0.png" type="Texture" id=10]
 [ext_resource path="res://Utils/KeyboardMovement.tscn" type="PackedScene" id=11]
-[ext_resource path="res://Scripts/Attack/Attack.gd" type="Script" id=12]
+[ext_resource path="res://Utils/FrontAttack.tscn" type="PackedScene" id=12]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 5.81073
@@ -35,9 +35,6 @@ animations = [ {
 "speed": 10.0
 } ]
 
-[sub_resource type="CapsuleShape2D" id=3]
-height = 2.0
-
 [node name="Elf" type="KinematicBody2D"]
 script = ExtResource( 1 )
 
@@ -48,21 +45,9 @@ shape = SubResource( 1 )
 position = Vector2( 0, -4 )
 frames = SubResource( 2 )
 animation = "idle"
+frame = 1
 playing = true
 
 [node name="Movement" parent="." instance=ExtResource( 11 )]
 
-[node name="Attack" type="Node2D" parent="." groups=[
-"player",
-]]
-script = ExtResource( 12 )
-
-[node name="HitArea" type="Area2D" parent="Attack"]
-
-[node name="Shape" type="CollisionShape2D" parent="Attack/HitArea"]
-position = Vector2( 10, -1 )
-shape = SubResource( 3 )
-__meta__ = {
-"_edit_group_": true
-}
-[connection signal="body_entered" from="Attack/HitArea" to="Attack" method="_on_HitArea_body_entered"]
+[node name="FrontAttack" parent="." instance=ExtResource( 12 )]
