@@ -17,7 +17,9 @@ func apply_controller_movement():
 	velocity = $Controller.get_input(Vector2(0, velocity.y))
 
 func apply_gravity(delta):
-	velocity.y += gravity * delta
+	if !body.is_on_floor():
+		if velocity.y<600:
+			velocity.y += gravity * delta
 
 func move():
 	body.move_and_slide(velocity, Vector2.UP)
