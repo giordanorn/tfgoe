@@ -27,6 +27,9 @@ animations = [ {
 } ]
 
 [node name="OrcPerseguidor" type="KinematicBody2D" groups=[
+"character",
+"orc",
+"perseguidor",
 "enemy",
 ]]
 script = ExtResource( 1 )
@@ -37,6 +40,6 @@ shape = SubResource( 1 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 2 )
 animation = "idle"
-frame = 3
+frame = 1
 playing = true
 offset = Vector2( 0, -3 )

@@ -28,7 +28,10 @@ animations = [ {
 } ]
 
 [node name="OrcBoss" type="KinematicBody2D" groups=[
+"character",
 "enemy",
+"orc",
+"boss",
 ]]
 script = ExtResource( 1 )
 
@@ -38,6 +41,6 @@ shape = SubResource( 1 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 2 )
 animation = "idle"
-frame = 3
+frame = 2
 playing = true
 offset = Vector2( 0, -2 )

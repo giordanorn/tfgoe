@@ -28,6 +28,9 @@ animations = [ {
 } ]
 
 [node name="DemonTanker" type="KinematicBody2D" groups=[
+"character",
+"tanker",
+"demon",
 "enemy",
 ]]
 script = ExtResource( 1 )
@@ -38,5 +41,6 @@ shape = SubResource( 1 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 2 )
 animation = "run"
+frame = 2
 playing = true
 offset = Vector2( 0, -2 )

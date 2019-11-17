@@ -27,7 +27,12 @@ animations = [ {
 "speed": 10.0
 } ]
 
-[node name="UndeadXama" type="KinematicBody2D"]
+[node name="UndeadXama" type="KinematicBody2D" groups=[
+"character",
+"undead",
+"xama",
+"enemy",
+]]
 script = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -36,6 +41,5 @@ shape = SubResource( 1 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 2 )
 animation = "run"
-frame = 1
 playing = true
 offset = Vector2( 0, -2 )

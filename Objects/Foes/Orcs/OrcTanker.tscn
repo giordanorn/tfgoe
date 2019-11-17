@@ -28,6 +28,9 @@ animations = [ {
 } ]
 
 [node name="OrcTanker" type="KinematicBody2D" groups=[
+"character",
+"orc",
+"tanker",
 "enemy",
 ]]
 script = ExtResource( 1 )
