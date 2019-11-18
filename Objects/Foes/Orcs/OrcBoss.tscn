@@ -10,10 +10,10 @@
 [ext_resource path="res://Sprites/Characters/Bodies/ogre_run_anim_f2.png" type="Texture" id=8]
 [ext_resource path="res://Sprites/Characters/Bodies/ogre_run_anim_f3.png" type="Texture" id=9]
 
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 10, 12 )
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 10, 14 )
 
-[sub_resource type="SpriteFrames" id=1]
+[sub_resource type="SpriteFrames" id=2]
 animations = [ {
 "frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ) ],
 "loop": true,
@@ -30,12 +30,11 @@ animations = [ {
 script = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, -4 )
-shape = SubResource( 2 )
+position = Vector2( 0, -6 )
+shape = SubResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-frames = SubResource( 1 )
+frames = SubResource( 2 )
 animation = "idle"
-frame = 3
 playing = true
 offset = Vector2( 0, -8 )
