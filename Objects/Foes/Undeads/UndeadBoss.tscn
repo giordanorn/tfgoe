@@ -10,9 +10,8 @@
 [ext_resource path="res://Sprites/Characters/Bodies/big_zombie_run_anim_f2.png" type="Texture" id=8]
 [ext_resource path="res://Sprites/Characters/Bodies/big_zombie_run_anim_f3.png" type="Texture" id=9]
 
-[sub_resource type="CapsuleShape2D" id=1]
-radius = 6.74715
-height = 3.44941
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 10, 14 )
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
@@ -31,11 +30,11 @@ animations = [ {
 script = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -6 )
 shape = SubResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 2 )
-animation = "run"
-frame = 3
+animation = "idle"
 playing = true
-offset = Vector2( 0, -2 )
+offset = Vector2( 0, -9 )

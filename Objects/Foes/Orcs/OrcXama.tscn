@@ -10,9 +10,8 @@
 [ext_resource path="res://Sprites/Characters/Bodies/orc_shaman_run_anim_f2.png" type="Texture" id=8]
 [ext_resource path="res://Sprites/Characters/Bodies/orc_shaman_run_anim_f3.png" type="Texture" id=9]
 
-[sub_resource type="CapsuleShape2D" id=1]
-radius = 6.74715
-height = 3.44925
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 6, 8 )
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
@@ -34,8 +33,8 @@ script = ExtResource( 1 )
 shape = SubResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 0, -2 )
 frames = SubResource( 2 )
 animation = "idle"
-frame = 2
+frame = 1
 playing = true
-offset = Vector2( 0, -1 )
