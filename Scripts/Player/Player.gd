@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-export var facing:String
+export var facing="right"
 
 func _process(delta):
 	if Input.is_action_pressed("ui_left"):
