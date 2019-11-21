@@ -4,8 +4,8 @@
 [ext_resource path="res://Objects/Players/Knight.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Objects/Players/Lizard.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Objects/Players/Wizard.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Objects/Foes/Orcs/OrcXama.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Objects/Foes/Orcs/OrcPerseguidor.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Objects/Foes/Orcs/OrcPursuer.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Objects/Foes/Orcs/OrcBrawler.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Objects/Foes/Orcs/OrcBoss.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Objects/Terrain.tscn" type="PackedScene" id=8]
 
@@ -35,15 +35,15 @@ position = Vector2( 8, 16 )
 position = Vector2( 28, 16 )
 
 [node name="Enemies" type="Node2D" parent="."]
-position = Vector2( 8, -32 )
+position = Vector2( 220, 112 )
 
-[node name="OrcXama" parent="Enemies" instance=ExtResource( 5 )]
-position = Vector2( 212, 152 )
+[node name="OrcPursuer" parent="Enemies" instance=ExtResource( 5 )]
+position = Vector2( -16, 12 )
 
-[node name="OrcPerseguidor" parent="Enemies" instance=ExtResource( 6 )]
-position = Vector2( 192, 156 )
+[node name="OrcBrawler" parent="Enemies" instance=ExtResource( 6 )]
+position = Vector2( 0, 8 )
 
 [node name="OrcBoss" parent="Enemies" instance=ExtResource( 7 )]
-position = Vector2( 236, 152 )
+position = Vector2( 20, 8 )
 
 [node name="Terrain" parent="." instance=ExtResource( 8 )]
