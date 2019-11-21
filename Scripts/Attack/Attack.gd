@@ -22,6 +22,7 @@ func attack():
 	elif character.is_facing_right():
 		hit_area.position=Vector2(shape.radius,0)
 	$AnimationCooldown.start(animation_time)
+
 func stop_attacking():
 	remove_child(hit_area)
 	$AttackCooldown.start(cooldown)
@@ -35,9 +36,10 @@ func is_attacking() -> bool:
 func attack_button_pressed() -> bool:
 	return Input.is_action_just_pressed("ui_accept")
 	
-func _on_HitArea_body_entered(body):
-	if body.is_in_group("enemy"):
-		body.take_damage(strength)
+func _on_HitArea_body_entered(target):
+	if target.is_in_group("enemy"):
+		print (character.nickname, ": hit ", target.nickname)
+		target.take_damage(strength)
 		pass
 
 func _on_AnimationCooldown_timeout():
