@@ -16,13 +16,12 @@ func _process(delta):
 
 func attack():
 	add_child(hit_area)
-	var shape=$HitArea/Shape.shape
-	if character.facing=="left":
+	var shape = $HitArea/Shape.shape
+	if character.is_facing_left():
 		hit_area.position=Vector2(-shape.radius,0)
-	elif character.facing=="right":
+	elif character.is_facing_right():
 		hit_area.position=Vector2(shape.radius,0)
 	$AnimationCooldown.start(animation_time)
-	
 func stop_attacking():
 	remove_child(hit_area)
 	$AttackCooldown.start(cooldown)
@@ -38,10 +37,7 @@ func attack_button_pressed() -> bool:
 	
 func _on_HitArea_body_entered(body):
 	if body.is_in_group("enemy"):
-		# deve causar dano ao body
-		# assumindo que o método take_damage está implementado
-		# deve aparecer algo como:
-		# body.take_damage(strength)
+		body.take_damage(strength)
 		pass
 
 func _on_AnimationCooldown_timeout():
