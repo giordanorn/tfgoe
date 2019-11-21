@@ -1,8 +1,8 @@
 extends Node
 
 export var strength = 0
-export var animation_time = 0.5
-export var cooldown = 1
+export var animation_time:float = 0.5
+export var cooldown:float = 1
 
 onready var character = get_parent()
 onready var hit_area = $HitArea
