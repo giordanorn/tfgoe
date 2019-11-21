@@ -37,8 +37,8 @@ animations = [ {
 
 [node name="Lizard" type="KinematicBody2D" groups=[
 "character",
-"lizard",
 "player",
+"lizard",
 ]]
 script = ExtResource( 1 )
 
@@ -50,9 +50,10 @@ shape = SubResource( 1 )
 position = Vector2( 0, -6 )
 frames = SubResource( 2 )
 animation = "idle"
+frame = 3
 playing = true
 
-[node name="KeyboardMovement" parent="." instance=ExtResource( 11 )]
+[node name="Movement" parent="." instance=ExtResource( 11 )]
 
 [node name="Health" parent="." instance=ExtResource( 12 )]
 

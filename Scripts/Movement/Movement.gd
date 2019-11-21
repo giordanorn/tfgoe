@@ -23,3 +23,12 @@ func apply_gravity(delta):
 
 func move():
 	body.move_and_slide(velocity, Vector2.UP)
+
+func is_moving_right() -> bool:
+	return velocity.x > 0
+	
+func is_moving_left() -> bool:
+	return velocity.x < 0
+
+func is_moving_horizontally() -> bool:
+	return velocity.x != 0
