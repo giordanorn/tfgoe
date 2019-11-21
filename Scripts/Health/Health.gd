@@ -58,3 +58,6 @@ func increase_max_hp(value:int):
 
 func reset_hp():
 	current_hp=0
+	
+func is_empty() -> bool:
+	return current_hp == 0
