@@ -41,6 +41,7 @@ animations = [ {
 "wizard",
 ]]
 script = ExtResource( 1 )
+nickname = "Wizard"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 1 )
@@ -50,6 +51,7 @@ shape = SubResource( 1 )
 position = Vector2( 0, -6 )
 frames = SubResource( 2 )
 animation = "idle"
+frame = 1
 playing = true
 
 [node name="Movement" parent="." instance=ExtResource( 11 )]

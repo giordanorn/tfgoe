@@ -41,6 +41,7 @@ animations = [ {
 "player",
 ]]
 script = ExtResource( 1 )
+nickname = "Elf"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, -1 )

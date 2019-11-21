@@ -20,25 +20,27 @@ func set_current_hp(value:int):
 		else:
 			current_hp=value
 
-func reduce_current_hp(value:int):
-	if value<0:
-		print_debug("tentativa de reduzir o hp com um valor negativo")
+func reduce_current_hp(value:int) -> bool:
+	if value < 0:
+		print_debug("can't reduce current hp in a negative value")
+		return false
 	else:
-		if value>current_hp:
-			current_hp=0
-		else:
-			current_hp-=value
+		current_hp = max(0, current_hp - value)
+		return true
 
-func reduce_max_hp(value:int):
-	if value<0:
-		print_debug("tentativa de reduzir o hp maximo com um valor negativo")
+func reduce_max_hp(value:int) -> bool:
+	"""
+	Diminui o valor do HP Máximo
+	Atualiza o HP Atual caso o HP Máximo seja reduzido
+	a um valor menor que o atual, não deixando ser maior que o máximo.
+	"""
+	if value < 0:
+		print_debug("can't reduce max hp in a negative value")
+		return false
 	else:
-		if value>=max_hp:
-			print_debug("tentativa de reduzir o hp para um valor <0")
-		else:
-			max_hp-=value
-			if current_hp>max_hp:
-				current_hp=max_hp
+		max_hp = max(0, max_hp - value)
+		current_hp = min(current_hp, max_hp)
+		return true
 
 func increase_current_hp(value:int):
 	if value<0:

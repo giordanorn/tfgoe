@@ -1,11 +1,17 @@
 extends KinematicBody2D
 
-func _process(delta):
-	update_sprite()
+export (String) var nickname = ""
 
-func update_sprite() -> void:
-	if !has_sprite() || !has_movement():
-		return
+func _process(delta):
+	if is_alive():
+		update_sprite()
+	else:
+		queue_free()
+
+func update_sprite() -> bool:
+	if not has_sprite() or not has_movement():
+		return false
+		
 	if $Movement.is_moving_right():
 		$AnimatedSprite.animation = "run"
 		$AnimatedSprite.flip_h = false
@@ -13,17 +19,23 @@ func update_sprite() -> void:
 		$AnimatedSprite.animation = "run"
 		$AnimatedSprite.flip_h = true
 	else:
-		$AnimatedSprite.animation = "idle"	
+		$AnimatedSprite.animation = "idle"
+	return true
 
-func take_damage(damage:int) -> void:
+func take_damage(damage:int) -> bool:
 	if has_health():
-		# faz os tratamentos antes de receber o dano
-		$Health.reduce_current_hp(damage)
+		"""
+		Aqui devem ser feito os tratamentos no damage
+		antes de aplicar a função de receber o dano.
+		"""
+		print (nickname, ": just receiving ", damage, " of damage, I have ", $Health.current_hp, " of current HP")
+		return $Health.reduce_current_hp(damage)
 	else:
 		print_debug("character has no health")
+		return false
 
 func is_alive() -> bool:
-	return !$Health.is_empty()
+	return not $Health.is_empty()
 
 func is_facing_right() -> bool:
 	if has_sprite():
@@ -32,7 +44,7 @@ func is_facing_right() -> bool:
 		return true
 
 func is_facing_left() -> bool:
-	return !is_facing_right()
+	return not is_facing_right()
 
 func has_health() -> bool:
 	return has_node("Health")
