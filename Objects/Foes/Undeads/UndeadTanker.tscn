@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=2]
 
-[ext_resource path="res://Scripts/Mobs/generic_mob_movement.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Character.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Characters/Bodies/swampy_idle_anim_f0.png" type="Texture" id=2]
 [ext_resource path="res://Sprites/Characters/Bodies/swampy_idle_anim_f1.png" type="Texture" id=3]
 [ext_resource path="res://Sprites/Characters/Bodies/swampy_idle_anim_f2.png" type="Texture" id=4]
@@ -28,9 +28,9 @@ animations = [ {
 
 [node name="UndeadTanker" type="KinematicBody2D" groups=[
 "character",
-"undead",
-"tanker",
 "enemy",
+"tanker",
+"undead",
 ]]
 script = ExtResource( 1 )
 
@@ -40,5 +40,4 @@ shape = SubResource( 1 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 2 )
 animation = "run"
-frame = 1
 playing = true

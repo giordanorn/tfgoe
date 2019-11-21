@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=2]
 
-[ext_resource path="res://Scripts/Mobs/generic_mob_movement.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Character.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Characters/Bodies/chort_idle_anim_f0.png" type="Texture" id=2]
 [ext_resource path="res://Sprites/Characters/Bodies/chort_idle_anim_f1.png" type="Texture" id=3]
 [ext_resource path="res://Sprites/Characters/Bodies/chort_idle_anim_f2.png" type="Texture" id=4]
@@ -29,8 +29,8 @@ animations = [ {
 [node name="DemonBatedor" type="KinematicBody2D" groups=[
 "character",
 "batedor",
-"demon",
 "enemy",
+"demon",
 ]]
 script = ExtResource( 1 )
 
@@ -41,6 +41,6 @@ shape = SubResource( 1 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 2 )
 animation = "idle"
-frame = 3
+frame = 2
 playing = true
 offset = Vector2( 0, -4 )
