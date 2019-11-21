@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Scripts/Character.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Characters/Bodies/imp_idle_anim_f0.png" type="Texture" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Sprites/Characters/Bodies/imp_run_anim_f1.png" type="Texture" id=7]
 [ext_resource path="res://Sprites/Characters/Bodies/imp_run_anim_f2.png" type="Texture" id=8]
 [ext_resource path="res://Sprites/Characters/Bodies/imp_run_anim_f3.png" type="Texture" id=9]
+[ext_resource path="res://Utils/Health.tscn" type="PackedScene" id=10]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 5, 7 )
@@ -28,9 +29,9 @@ animations = [ {
 
 [node name="DemonPerseguidor" type="KinematicBody2D" groups=[
 "character",
+"demon",
 "enemy",
 "perseguidor",
-"demon",
 ]]
 script = ExtResource( 1 )
 
@@ -41,5 +42,7 @@ shape = SubResource( 1 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 2 )
 animation = "idle"
-frame = 3
+frame = 2
 playing = true
+
+[node name="Health" parent="." instance=ExtResource( 10 )]

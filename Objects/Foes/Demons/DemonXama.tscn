@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Scripts/Character.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Characters/Bodies/necromancer_idle_anim_f0.png" type="Texture" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Sprites/Characters/Bodies/necromancer_run_anim_f1.png" type="Texture" id=7]
 [ext_resource path="res://Sprites/Characters/Bodies/necromancer_run_anim_f2.png" type="Texture" id=8]
 [ext_resource path="res://Sprites/Characters/Bodies/necromancer_run_anim_f3.png" type="Texture" id=9]
+[ext_resource path="res://Utils/Health.tscn" type="PackedScene" id=10]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 6, 8 )
@@ -28,9 +29,9 @@ animations = [ {
 
 [node name="DemonXama" type="KinematicBody2D" groups=[
 "character",
+"demon",
 "enemy",
 "xama",
-"demon",
 ]]
 script = ExtResource( 1 )
 
@@ -43,3 +44,5 @@ animation = "idle"
 frame = 1
 playing = true
 offset = Vector2( 0, -2 )
+
+[node name="Health" parent="." instance=ExtResource( 10 )]
