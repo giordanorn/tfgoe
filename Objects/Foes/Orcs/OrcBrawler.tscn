@@ -27,13 +27,14 @@ animations = [ {
 "speed": 10.0
 } ]
 
-[node name="OrcBatedor" type="KinematicBody2D" groups=[
+[node name="OrcBrawler" type="KinematicBody2D" groups=[
 "character",
-"batedor",
 "enemy",
 "orc",
+"brawler",
 ]]
 script = ExtResource( 1 )
+nickname = "Orc Brawler"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, -1 )
@@ -42,7 +43,7 @@ shape = SubResource( 1 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 2 )
 animation = "idle"
-frame = 3
+frame = 2
 playing = true
 offset = Vector2( -1, -2 )
 

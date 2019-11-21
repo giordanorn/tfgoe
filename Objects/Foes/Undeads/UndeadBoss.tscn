@@ -34,6 +34,7 @@ animations = [ {
 "undead",
 ]]
 script = ExtResource( 1 )
+nickname = "Undead Boss"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, -6 )
@@ -42,7 +43,6 @@ shape = SubResource( 1 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 2 )
 animation = "idle"
-frame = 3
 playing = true
 offset = Vector2( 0, -9 )
 

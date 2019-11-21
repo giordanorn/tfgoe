@@ -27,13 +27,14 @@ animations = [ {
 "speed": 10.0
 } ]
 
-[node name="DemonBatedor" type="KinematicBody2D" groups=[
+[node name="DemonBrawler" type="KinematicBody2D" groups=[
 "character",
-"batedor",
-"enemy",
 "demon",
+"enemy",
+"brawler",
 ]]
 script = ExtResource( 1 )
+nickname = "Demon Brawler"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, -2 )
@@ -42,7 +43,6 @@ shape = SubResource( 1 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 2 )
 animation = "idle"
-frame = 3
 playing = true
 offset = Vector2( 0, -4 )
 

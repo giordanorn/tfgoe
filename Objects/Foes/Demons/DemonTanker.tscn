@@ -29,11 +29,12 @@ animations = [ {
 
 [node name="DemonTanker" type="KinematicBody2D" groups=[
 "character",
-"tanker",
 "demon",
 "enemy",
+"tanker",
 ]]
 script = ExtResource( 1 )
+nickname = "Demon Tanker"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
@@ -41,7 +42,6 @@ shape = SubResource( 1 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 2 )
 animation = "idle"
-frame = 2
 playing = true
 offset = Vector2( 0, -2 )
 

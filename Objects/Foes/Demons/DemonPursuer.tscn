@@ -27,13 +27,14 @@ animations = [ {
 "speed": 10.0
 } ]
 
-[node name="DemonPerseguidor" type="KinematicBody2D" groups=[
+[node name="DemonPursuer" type="KinematicBody2D" groups=[
 "character",
 "demon",
+"pursuer",
 "enemy",
-"perseguidor",
 ]]
 script = ExtResource( 1 )
+nickname = "Demon Pursuer"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 1 )
@@ -42,7 +43,6 @@ shape = SubResource( 1 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 2 )
 animation = "idle"
-frame = 2
 playing = true
 
 [node name="Health" parent="." instance=ExtResource( 10 )]

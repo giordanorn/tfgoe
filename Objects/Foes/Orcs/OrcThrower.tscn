@@ -27,13 +27,14 @@ animations = [ {
 "speed": 10.0
 } ]
 
-[node name="OrcXama" type="KinematicBody2D" groups=[
+[node name="OrcThrower" type="KinematicBody2D" groups=[
 "character",
 "enemy",
 "orc",
-"xama",
+"thrower",
 ]]
 script = ExtResource( 1 )
+nickname = "Orc Thrower"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
@@ -42,7 +43,7 @@ shape = SubResource( 1 )
 position = Vector2( 0, -2 )
 frames = SubResource( 2 )
 animation = "idle"
-frame = 3
+frame = 2
 playing = true
 
 [node name="Health" parent="." instance=ExtResource( 10 )]

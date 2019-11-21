@@ -29,11 +29,12 @@ animations = [ {
 
 [node name="UndeadTanker" type="KinematicBody2D" groups=[
 "character",
+"tanker",
 "enemy",
 "undead",
-"tanker",
 ]]
 script = ExtResource( 1 )
+nickname = "Undead Tanker"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
@@ -41,6 +42,7 @@ shape = SubResource( 1 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 2 )
 animation = "run"
+frame = 2
 playing = true
 
 [node name="Health" parent="." instance=ExtResource( 10 )]

@@ -34,6 +34,7 @@ animations = [ {
 "tanker",
 ]]
 script = ExtResource( 1 )
+nickname = "Orc Tanker"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, -1 )
@@ -42,7 +43,6 @@ shape = SubResource( 1 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 2 )
 animation = "idle"
-frame = 1
 playing = true
 offset = Vector2( -1, -2 )
 
