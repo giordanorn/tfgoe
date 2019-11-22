@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Scripts/Character.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Characters/Bodies/goblin_idle_anim_f0.png" type="Texture" id=2]
@@ -10,6 +10,8 @@
 [ext_resource path="res://Sprites/Characters/Bodies/goblin_run_anim_f2.png" type="Texture" id=8]
 [ext_resource path="res://Sprites/Characters/Bodies/goblin_run_anim_f3.png" type="Texture" id=9]
 [ext_resource path="res://Utils/Health.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Utils/KeyboardMovement.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Scripts/Attack/ContactAttack.gd" type="Script" id=12]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 5, 6 )
@@ -26,6 +28,8 @@ animations = [ {
 "name": "run",
 "speed": 10.0
 } ]
+
+[sub_resource type="RectangleShape2D" id=3]
 
 [node name="OrcPursuer" type="KinematicBody2D" groups=[
 "character",
@@ -48,3 +52,13 @@ frame = 2
 playing = true
 
 [node name="Health" parent="." instance=ExtResource( 10 )]
+
+[node name="Movement" parent="." instance=ExtResource( 11 )]
+
+[node name="ContactAttack" type="Node2D" parent="."]
+script = ExtResource( 12 )
+
+[node name="HitArea" type="Area2D" parent="ContactAttack"]
+
+[node name="Shape" type="CollisionShape2D" parent="ContactAttack/HitArea"]
+shape = SubResource( 3 )
