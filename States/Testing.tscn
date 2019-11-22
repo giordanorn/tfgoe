@@ -1,15 +1,18 @@
 [gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://Objects/Players/Elf.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Objects/Players/Knight.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Objects/Players/Lizard.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Objects/Players/Wizard.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Objects/Foes/Orcs/OrcPursuer.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Objects/Foes/Orcs/OrcBrawler.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Objects/Foes/Orcs/OrcBoss.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Objects/Terrain.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Characters/Players/Elf.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Characters/Players/Knight.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Characters/Players/Lizard.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Characters/Players/Wizard.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Characters/Enemies/Orcs/OrcPursuer.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Characters/Enemies/Orcs/OrcBrawler.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Characters/Enemies/Orcs/OrcBoss.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Levels/Test Level.tscn" type="PackedScene" id=8]
 
-[node name="Test" type="Node2D" groups=[
+
+
+
+[node name="Testing" type="Node2D" groups=[
 "Levels",
 ]]
 
