@@ -51,7 +51,6 @@ shape = SubResource( 1 )
 position = Vector2( 0, -6 )
 frames = SubResource( 2 )
 animation = "idle"
-frame = 2
 playing = true
 
 [node name="Movement" parent="." instance=ExtResource( 11 )]
