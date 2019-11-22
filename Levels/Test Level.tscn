@@ -867,7 +867,7 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 22/shapes = [  ]
 22/z_index = 0
 
-[node name="Terrain" type="Node2D"]
+[node name="Test Level" type="Node2D"]
 
 [node name="ForestTileMap" type="TileMap" parent="."]
 tile_set = SubResource( 56 )

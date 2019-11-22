@@ -9,9 +9,6 @@
 [ext_resource path="res://Characters/Enemies/Orcs/OrcBoss.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Levels/Test Level.tscn" type="PackedScene" id=8]
 
-
-
-
 [node name="Testing" type="Node2D" groups=[
 "Levels",
 ]]
@@ -23,6 +20,7 @@ zoom = Vector2( 0.25, 0.25 )
 process_mode = 0
 
 [node name="Players" type="Node2D" parent="."]
+editor/display_folded = true
 position = Vector2( 56, 56 )
 
 [node name="Elf" parent="Players" instance=ExtResource( 1 )]
@@ -38,6 +36,7 @@ position = Vector2( 8, 16 )
 position = Vector2( 28, 16 )
 
 [node name="Enemies" type="Node2D" parent="."]
+editor/display_folded = true
 position = Vector2( 220, 112 )
 
 [node name="OrcPursuer" parent="Enemies" instance=ExtResource( 5 )]
@@ -49,4 +48,4 @@ position = Vector2( 0, 8 )
 [node name="OrcBoss" parent="Enemies" instance=ExtResource( 7 )]
 position = Vector2( 20, 8 )
 
-[node name="Terrain" parent="." instance=ExtResource( 8 )]
+[node name="Test Level" parent="." instance=ExtResource( 8 )]
