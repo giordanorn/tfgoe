@@ -8,6 +8,7 @@ start_scene = "res://States/Stages/Forest/Stage1.tscn"
 test_scene = "res://States/Testing.tscn"
 
 [node name="HUD" type="CanvasLayer" parent="."]
+editor/display_folded = true
 
 [node name="Control" type="Control" parent="HUD"]
 anchor_left = 0.5
