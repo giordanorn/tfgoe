@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Scripts/Character.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Characters/Bodies/zombie_idle_anim_f0.png" type="Texture" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://Sprites/Characters/Bodies/zombie_run_anim_f2.png" type="Texture" id=8]
 [ext_resource path="res://Sprites/Characters/Bodies/zombie_run_anim_f3.png" type="Texture" id=9]
 [ext_resource path="res://Utils/Health.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Utils/ContactAttack.tscn" type="PackedScene" id=11]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 4, 8 )
@@ -30,8 +31,8 @@ animations = [ {
 [node name="UndeadBrawler" type="KinematicBody2D" groups=[
 "character",
 "enemy",
-"undead",
 "brawler",
+"undead",
 ]]
 script = ExtResource( 1 )
 nickname = "Undead Brawler"
@@ -42,6 +43,9 @@ shape = SubResource( 1 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 2 )
 animation = "run"
+frame = 1
 playing = true
 
 [node name="Health" parent="." instance=ExtResource( 10 )]
+
+[node name="ContactAttack" parent="." instance=ExtResource( 11 )]
