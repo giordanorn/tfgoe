@@ -16,8 +16,11 @@ _global_script_class_icons={
 [application]
 
 config/name="The Forsaken Gate of Etrata"
-run/main_scene="res://States/Testing.tscn"
-config/icon="res://icon.png"
+run/main_scene="res://States/Main Menu.tscn"
+
+[autoload]
+
+GameController="*res://Scripts/GameController.gd"
 
 [locale]
 

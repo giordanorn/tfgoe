@@ -1,3 +1,54 @@
-[gd_scene format=2]
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scripts/Main Menu.gd" type="Script" id=1]
 
 [node name="Main Menu" type="Node2D"]
+script = ExtResource( 1 )
+start_scene = "res://States/Stages/Forest/Stage1.tscn"
+test_scene = "res://States/Testing.tscn"
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="HUD"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -162.0
+margin_top = -42.0
+margin_right = 162.0
+margin_bottom = 42.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Exit" type="Button" parent="HUD/Control"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -38.5
+margin_top = -20.0
+margin_right = 38.5
+text = "Exit Game"
+
+[node name="Test" type="Button" parent="HUD/Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -40.5
+margin_top = -10.0
+margin_right = 40.5
+margin_bottom = 10.0
+text = "Test Scene"
+
+[node name="Start" type="Button" parent="HUD/Control"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -41.5
+margin_right = 41.5
+margin_bottom = 20.0
+text = "Start Game"
+[connection signal="button_up" from="HUD/Control/Exit" to="." method="_on_Exit_button_up"]
+[connection signal="button_up" from="HUD/Control/Test" to="." method="_on_Test_button_up"]
+[connection signal="button_up" from="HUD/Control/Start" to="." method="_on_Start_button_up"]
