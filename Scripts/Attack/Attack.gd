@@ -21,9 +21,11 @@ func attack():
 	
 	if character.is_facing_left():
 		hit_area.position=Vector2(-shape.radius*area_size.x,0)
+		$HitArea/AnimatedSprite.flip_h=true
 		print()
 	elif character.is_facing_right():
 		hit_area.position=Vector2(shape.radius*area_size.x,0)
+		$HitArea/AnimatedSprite.flip_h=false
 	$AnimationCooldown.start(animation_time)
 
 func stop_attacking():

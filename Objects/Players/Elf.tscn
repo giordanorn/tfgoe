@@ -5,11 +5,11 @@
 [ext_resource path="res://Sprites/Characters/Bodies/elf_m_idle_anim_f1.png" type="Texture" id=3]
 [ext_resource path="res://Sprites/Characters/Bodies/elf_m_idle_anim_f2.png" type="Texture" id=4]
 [ext_resource path="res://Sprites/Characters/Bodies/elf_m_idle_anim_f3.png" type="Texture" id=5]
-[ext_resource path="res://Sprites/Characters/Bodies/elf_m_hit_anim_f0.png" type="Texture" id=6]
-[ext_resource path="res://Sprites/Characters/Bodies/elf_m_run_anim_f0.png" type="Texture" id=7]
-[ext_resource path="res://Sprites/Characters/Bodies/elf_m_run_anim_f1.png" type="Texture" id=8]
-[ext_resource path="res://Sprites/Characters/Bodies/elf_m_run_anim_f2.png" type="Texture" id=9]
-[ext_resource path="res://Sprites/Characters/Bodies/elf_m_run_anim_f3.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/Characters/Bodies/elf_m_run_anim_f0.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/Characters/Bodies/elf_m_run_anim_f1.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Characters/Bodies/elf_m_run_anim_f2.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/Characters/Bodies/elf_m_run_anim_f3.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/Characters/Bodies/elf_m_hit_anim_f0.png" type="Texture" id=10]
 [ext_resource path="res://Utils/KeyboardMovement.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Utils/Health.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Utils/FrontAttack.tscn" type="PackedScene" id=13]
@@ -24,21 +24,21 @@ animations = [ {
 "name": "idle",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 6 ), ExtResource( 6 ), ExtResource( 6 ), ExtResource( 6 ) ],
-"loop": true,
-"name": "hit",
-"speed": 10.0
-}, {
-"frames": [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ) ],
+"frames": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ) ],
 "loop": true,
 "name": "run",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 10 ), ExtResource( 10 ), ExtResource( 10 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "hit",
 "speed": 10.0
 } ]
 
 [node name="Elf" type="KinematicBody2D" groups=[
 "character",
-"elf",
 "player",
+"elf",
 ]]
 script = ExtResource( 1 )
 nickname = "Elf"
@@ -50,7 +50,7 @@ shape = SubResource( 1 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 2 )
 animation = "idle"
-frame = 2
+frame = 3
 playing = true
 offset = Vector2( 0, -6 )
 
@@ -59,3 +59,9 @@ offset = Vector2( 0, -6 )
 [node name="Health" parent="." instance=ExtResource( 12 )]
 
 [node name="FrontAttack" parent="." instance=ExtResource( 13 )]
+
+[node name="AnimatedSprite" parent="FrontAttack/HitArea" index="1"]
+animation = "ElfBaseAttack"
+frame = 4
+
+[editable path="FrontAttack"]
