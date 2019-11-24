@@ -1,8 +1,43 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Scripts/Attack/Attack.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/Characters/Attacks/LightningAttack/tile000.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Characters/Attacks/LightningAttack/tile001.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Characters/Attacks/LightningAttack/tile002.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Characters/Attacks/LightningAttack/tile003.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Characters/Attacks/LightningAttack/tile004.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/Characters/Attacks/LightningAttack/tile005.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Characters/Attacks/LightningAttack/tile006.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/Characters/Attacks/StabAttack/tile000.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/Characters/Attacks/StabAttack/tile001.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/Characters/Attacks/StabAttack/tile002.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/Characters/Attacks/StabAttack/tile003.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/Characters/Attacks/StabAttack/tile004.png" type="Texture" id=13]
+[ext_resource path="res://Sprites/Characters/Attacks/StabAttack/tile005.png" type="Texture" id=14]
+[ext_resource path="res://Sprites/Characters/Attacks/SmiteAttack/A200-1.png" type="Texture" id=15]
+[ext_resource path="res://Sprites/Characters/Attacks/SmiteAttack/A200-2.png" type="Texture" id=16]
+[ext_resource path="res://Sprites/Characters/Attacks/SmiteAttack/A200-3.png" type="Texture" id=17]
+[ext_resource path="res://Sprites/Characters/Attacks/SmiteAttack/A200-4.png" type="Texture" id=18]
 
 [sub_resource type="CircleShape2D" id=1]
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ) ],
+"loop": true,
+"name": "WizBaseAttack",
+"speed": 15.0
+}, {
+"frames": [ ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ) ],
+"loop": true,
+"name": "ElfBaseAttack",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ) ],
+"loop": true,
+"name": "KnightBaseAttack",
+"speed": 10.0
+} ]
 
 [node name="FrontAttack" type="Node2D"]
 script = ExtResource( 1 )
@@ -16,6 +51,13 @@ shape = SubResource( 1 )
 __meta__ = {
 "_edit_group_": true
 }
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="HitArea"]
+scale = Vector2( 0.08, 0.08 )
+frames = SubResource( 2 )
+animation = "WizBaseAttack"
+frame = 2
+playing = true
 
 [node name="AttackCooldown" type="Timer" parent="."]
 one_shot = true

@@ -1,11 +1,11 @@
 extends Node
 
+onready var character = get_parent()
+onready var hit_area = $HitArea
+
 export var strength = 1
 export var animation_time:float = 0.25
 export var cooldown:float = 0.1
-
-onready var character = get_parent()
-onready var hit_area = $HitArea
 
 func _ready():
 	stop_attacking()
@@ -17,10 +17,15 @@ func _process(delta):
 func attack():
 	add_child(hit_area)
 	var shape = $HitArea/Shape.shape
+	var area_size = hit_area.get_node("Shape").scale
+	
 	if character.is_facing_left():
-		hit_area.position=Vector2(-shape.radius,0)
+		hit_area.position=Vector2(-shape.radius*area_size.x,0)
+		$HitArea/AnimatedSprite.flip_h=true
+		print()
 	elif character.is_facing_right():
-		hit_area.position=Vector2(shape.radius,0)
+		hit_area.position=Vector2(shape.radius*area_size.x,0)
+		$HitArea/AnimatedSprite.flip_h=false
 	$AnimationCooldown.start(animation_time)
 
 func stop_attacking():
