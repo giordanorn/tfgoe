@@ -1,7 +1,7 @@
 extends Node
 
-export (int) var current_hp = 1
-export (int) var max_hp = 1
+export (int) var current_hp = 2
+export (int) var max_hp = 2
 
 func set_max_hp(value:int):
 	if value<0:

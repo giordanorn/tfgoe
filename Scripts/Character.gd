@@ -64,3 +64,5 @@ func has_sprite() -> bool:
 func has_movement() -> bool:
 	return has_node("Movement")
 
+func has_HUD() -> bool:
+	return has_node("HUD")
