@@ -43,6 +43,7 @@ func rip():
 	Colocar um cooldown e após acabar chamar o queue_free.
 	"""
 	queue_free()
+	get_tree().change_scene("res://States/Game Over.tscn")
 
 func is_facing_right() -> bool:
 	if has_sprite():
