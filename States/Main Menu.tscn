@@ -4,11 +4,10 @@
 
 [node name="Main Menu" type="Node2D"]
 script = ExtResource( 1 )
-start_scene = "res://States/Stages/Forest/Stage1.tscn"
+start_scene = "res://States/Character Selection.tscn"
 test_scene = "res://States/Testing.tscn"
 
 [node name="HUD" type="CanvasLayer" parent="."]
-editor/display_folded = true
 
 [node name="Control" type="Control" parent="HUD"]
 anchor_left = 0.5
