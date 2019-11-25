@@ -904,11 +904,12 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 25/z_index = 0
 
 [node name="Forest 1" type="Node2D"]
+editor/display_folded = true
 
 [node name="Background" type="Node2D" parent="."]
 
 [node name="BG" type="Sprite" parent="Background"]
-position = Vector2( 812, 80 )
+position = Vector2( 813, 80 )
 scale = Vector2( 1.60938, 0.708333 )
 texture = ExtResource( 1 )
 
@@ -982,5 +983,5 @@ position = Vector2( 16, 24 )
 position = Vector2( -16, 24 )
 
 [node name="WarpZone" parent="." instance=ExtResource( 9 )]
-position = Vector2( 1280, 136 )
+position = Vector2( 1268.03, 127.618 )
 scene_path = "res://States/Stages/Forest/Stage2.tscn"

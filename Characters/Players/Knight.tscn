@@ -20,16 +20,16 @@
 [ext_resource path="res://Sprites/Characters/Attacks/LightningAttack/tile004.png" type="Texture" id=18]
 [ext_resource path="res://Sprites/Characters/Attacks/LightningAttack/tile005.png" type="Texture" id=19]
 [ext_resource path="res://Sprites/Characters/Attacks/LightningAttack/tile006.png" type="Texture" id=20]
-[ext_resource path="res://Sprites/Characters/Attacks/StabAttack/tile000.png" type="Texture" id=21]
-[ext_resource path="res://Sprites/Characters/Attacks/StabAttack/tile001.png" type="Texture" id=22]
-[ext_resource path="res://Sprites/Characters/Attacks/StabAttack/tile002.png" type="Texture" id=23]
-[ext_resource path="res://Sprites/Characters/Attacks/StabAttack/tile003.png" type="Texture" id=24]
-[ext_resource path="res://Sprites/Characters/Attacks/StabAttack/tile004.png" type="Texture" id=25]
-[ext_resource path="res://Sprites/Characters/Attacks/StabAttack/tile005.png" type="Texture" id=26]
-[ext_resource path="res://Sprites/Characters/Attacks/SmiteAttack/A200-1.png" type="Texture" id=27]
-[ext_resource path="res://Sprites/Characters/Attacks/SmiteAttack/A200-2.png" type="Texture" id=28]
-[ext_resource path="res://Sprites/Characters/Attacks/SmiteAttack/A200-3.png" type="Texture" id=29]
-[ext_resource path="res://Sprites/Characters/Attacks/SmiteAttack/A200-4.png" type="Texture" id=30]
+[ext_resource path="res://Sprites/Characters/Attacks/SmiteAttack/A200-1.png" type="Texture" id=21]
+[ext_resource path="res://Sprites/Characters/Attacks/SmiteAttack/A200-2.png" type="Texture" id=22]
+[ext_resource path="res://Sprites/Characters/Attacks/SmiteAttack/A200-3.png" type="Texture" id=23]
+[ext_resource path="res://Sprites/Characters/Attacks/SmiteAttack/A200-4.png" type="Texture" id=24]
+[ext_resource path="res://Sprites/Characters/Attacks/StabAttack/tile000.png" type="Texture" id=25]
+[ext_resource path="res://Sprites/Characters/Attacks/StabAttack/tile001.png" type="Texture" id=26]
+[ext_resource path="res://Sprites/Characters/Attacks/StabAttack/tile002.png" type="Texture" id=27]
+[ext_resource path="res://Sprites/Characters/Attacks/StabAttack/tile003.png" type="Texture" id=28]
+[ext_resource path="res://Sprites/Characters/Attacks/StabAttack/tile004.png" type="Texture" id=29]
+[ext_resource path="res://Sprites/Characters/Attacks/StabAttack/tile005.png" type="Texture" id=30]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 6, 9 )
@@ -59,14 +59,14 @@ animations = [ {
 "name": "WizBaseAttack",
 "speed": 15.0
 }, {
-"frames": [ ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ) ],
-"loop": true,
-"name": "ElfBaseAttack",
-"speed": 10.0
-}, {
-"frames": [ ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ) ],
+"frames": [ ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ) ],
 "loop": true,
 "name": "KnightBaseAttack",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ) ],
+"loop": true,
+"name": "ElfBaseAttack",
 "speed": 10.0
 } ]
 
@@ -86,6 +86,7 @@ shape = SubResource( 1 )
 position = Vector2( 0, -6 )
 frames = SubResource( 2 )
 animation = "idle"
+frame = 3
 playing = true
 
 [node name="Movement" parent="." instance=ExtResource( 11 )]
@@ -93,11 +94,20 @@ playing = true
 [node name="Health" parent="." instance=ExtResource( 12 )]
 
 [node name="FrontAttack" parent="." instance=ExtResource( 13 )]
+scale = Vector2( 1.5, 1.5 )
 
 [node name="AnimatedSprite" parent="FrontAttack/HitArea" index="1"]
+position = Vector2( 0, -4 )
 scale = Vector2( 0.04, 0.04 )
 frames = SubResource( 3 )
 animation = "KnightBaseAttack"
-frame = 0
+frame = 3
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+zoom = Vector2( 0.3, 0.3 )
+drag_margin_left = 0.4
+drag_margin_top = 0.4
+drag_margin_right = 0.0
 
 [editable path="FrontAttack"]
