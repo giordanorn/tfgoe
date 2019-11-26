@@ -50,7 +50,7 @@ shape = SubResource( 1 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 2 )
 animation = "idle"
-frame = 1
+frame = 2
 playing = true
 offset = Vector2( 0, -6 )
 
@@ -59,11 +59,14 @@ offset = Vector2( 0, -6 )
 [node name="Health" parent="." instance=ExtResource( 11 )]
 
 [node name="FrontAttack" parent="." instance=ExtResource( 12 )]
-editor/display_folded = true
+
+[node name="Shape" parent="FrontAttack/HitArea" index="0"]
+scale = Vector2( 1.4, 0.4 )
 
 [node name="AnimatedSprite" parent="FrontAttack/HitArea" index="1"]
+scale = Vector2( 0.11, 0.09 )
 animation = "ElfBaseAttack"
-frame = 3
+frame = 4
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true

@@ -11,10 +11,9 @@ func _process(delta):
 		get_node("HUD/Menu/Bars/HealthContainer/HealthButton").set_disabled(true)
 	if game_info.xp<game_info.current_damage["cost"]:
 		get_node("HUD/Menu/Bars/DamageContainer/DamageButton").set_disabled(true)
-	pass
 
 func _on_DamageButton_button_up():
-	game_info.current_damage["value"]+=int(game_info.current_damage["value"]/10)+1
+	game_info.current_damage["value"]+=int(game_info.current_damage["value"]/5)+1
 	game_info.xp-=game_info.current_damage["cost"]
 	game_info.current_damage["cost"]+=1
 	game_info.evolving = true

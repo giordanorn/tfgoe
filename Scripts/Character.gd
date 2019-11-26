@@ -4,7 +4,7 @@ onready var game_info = get_node("/root/GameController")
 export (String) var nickname = ""
 
 func _process(delta):
-	if self.is_in_group("player") and game_info.starting_stats_defined == false:
+	if self.is_in_group("player") and !game_info.starting_stats_defined:
 		game_info.current_mspd["value"] = get_node("Movement").speed
 		game_info.current_aspd["value"] = get_node("FrontAttack").animation_time
 		game_info.current_damage["value"] = get_node("FrontAttack").strength

@@ -7,7 +7,7 @@ enum PLAYER_CHARACTER{
 }
 
 export (int) var total_score = 0
-export (int) var xp = 10
+export (int) var xp = 0
 export var selected_character = PLAYER_CHARACTER.ELF
 
 export (bool) var evolving = false
