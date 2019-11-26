@@ -1,5 +1,6 @@
 extends KinematicBody2D
 
+onready var game_info = get_node("/root/GameController")
 export (String) var nickname = ""
 
 func _process(delta):
@@ -45,6 +46,9 @@ func rip():
 	queue_free()
 	if self.is_in_group("player"):
 		get_tree().change_scene("res://States/Game Over.tscn")
+	if self.is_in_group("enemy"):
+		game_info.xp+=1
+		game_info.total_score+=1
 
 func is_facing_right() -> bool:
 	if has_sprite():
