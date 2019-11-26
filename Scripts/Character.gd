@@ -4,6 +4,20 @@ onready var game_info = get_node("/root/GameController")
 export (String) var nickname = ""
 
 func _process(delta):
+	if self.is_in_group("player") and game_info.starting_stats_defined == false:
+		game_info.current_mspd["value"] = get_node("Movement").speed
+		game_info.current_aspd["value"] = get_node("FrontAttack").animation_time
+		game_info.current_damage["value"] = get_node("FrontAttack").strength
+		game_info.max_hp["value"] = get_node("Health").max_hp
+		game_info.current_hp = get_node("Health").current_hp
+		game_info.starting_stats_defined = true
+	if self.is_in_group("player") and game_info.evolving:
+		get_node("Movement").speed = game_info.current_mspd["value"]
+		get_node("FrontAttack").animation_time = game_info.current_aspd["value"]
+		get_node("FrontAttack").strength = game_info.current_damage["value"]
+		get_node("Health").max_hp = game_info.max_hp["value"]
+		get_node("Health").current_hp = game_info.current_hp
+		game_info.evolving = false
 	if is_alive():
 		update_sprite()
 	else:

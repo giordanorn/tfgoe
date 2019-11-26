@@ -1,0 +1,95 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scripts/Evolution.gd" type="Script" id=1]
+
+[node name="Checkpoint" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="Menu" type="Control" parent="HUD"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Bars" type="HBoxContainer" parent="HUD/Menu"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -335.0
+margin_top = -27.5
+margin_right = 335.0
+margin_bottom = 27.5
+alignment = 1
+
+[node name="DamageContainer" type="VBoxContainer" parent="HUD/Menu/Bars"]
+margin_left = 117.0
+margin_right = 223.0
+margin_bottom = 55.0
+
+[node name="DamageLabel" type="Label" parent="HUD/Menu/Bars/DamageContainer"]
+margin_right = 106.0
+margin_bottom = 31.0
+text = "Current value: 1
+Cost to Evolve: 1"
+
+[node name="DamageButton" type="Button" parent="HUD/Menu/Bars/DamageContainer"]
+margin_top = 35.0
+margin_right = 106.0
+margin_bottom = 55.0
+text = "Damage"
+
+[node name="HealthContainer" type="VBoxContainer" parent="HUD/Menu/Bars"]
+margin_left = 227.0
+margin_right = 333.0
+margin_bottom = 55.0
+
+[node name="HealthLabel" type="Label" parent="HUD/Menu/Bars/HealthContainer"]
+margin_right = 106.0
+margin_bottom = 31.0
+text = "Current Value: 1
+Cost to Evolve: 1"
+
+[node name="HealthButton" type="Button" parent="HUD/Menu/Bars/HealthContainer"]
+margin_top = 35.0
+margin_right = 106.0
+margin_bottom = 55.0
+text = "Health"
+
+[node name="ASPDContainer" type="VBoxContainer" parent="HUD/Menu/Bars"]
+margin_left = 337.0
+margin_right = 443.0
+margin_bottom = 55.0
+
+[node name="ASPDLabel" type="Label" parent="HUD/Menu/Bars/ASPDContainer"]
+margin_right = 106.0
+margin_bottom = 31.0
+text = "Current Value: 1
+Cost to Evolve: 1"
+
+[node name="ASPDButton" type="Button" parent="HUD/Menu/Bars/ASPDContainer"]
+margin_top = 35.0
+margin_right = 106.0
+margin_bottom = 55.0
+text = "Attack Speed"
+
+[node name="MSPDContainer" type="VBoxContainer" parent="HUD/Menu/Bars"]
+margin_left = 447.0
+margin_right = 553.0
+margin_bottom = 55.0
+
+[node name="MSPDLabel" type="Label" parent="HUD/Menu/Bars/MSPDContainer"]
+margin_right = 106.0
+margin_bottom = 31.0
+text = "Current Value: 1
+Cost to Evolve: 1"
+
+[node name="MSPDButton" type="Button" parent="HUD/Menu/Bars/MSPDContainer"]
+margin_top = 35.0
+margin_right = 106.0
+margin_bottom = 55.0
+text = "Mov. Speed"
+[connection signal="button_up" from="HUD/Menu/Bars/DamageContainer/DamageButton" to="." method="_on_DamageButton_button_up"]
+[connection signal="button_up" from="HUD/Menu/Bars/HealthContainer/HealthButton" to="." method="_on_HealthButton_button_up"]
+[connection signal="button_up" from="HUD/Menu/Bars/ASPDContainer/ASPDButton" to="." method="_on_ASPDButton_button_up"]
+[connection signal="button_up" from="HUD/Menu/Bars/MSPDContainer/MSPDButton" to="." method="_on_MSPDButton_button_up"]
