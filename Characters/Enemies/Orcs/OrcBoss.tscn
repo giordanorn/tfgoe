@@ -30,10 +30,12 @@ animations = [ {
 
 [node name="OrcBoss" type="KinematicBody2D" groups=[
 "character",
-"orc",
 "enemy",
+"orc",
 "boss",
 ]]
+collision_layer = 2
+collision_mask = 2
 script = ExtResource( 1 )
 nickname = "Orc Boss"
 
@@ -44,6 +46,7 @@ shape = SubResource( 1 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 2 )
 animation = "idle"
+frame = 3
 playing = true
 offset = Vector2( 0, -8 )
 

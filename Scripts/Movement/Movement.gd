@@ -2,15 +2,16 @@ extends Node
 
 onready var body = get_parent()
 
-export (int) var speed = 100
-export (int) var jump_speed = 200
-export (int) var gravity = 500
+export(int) var speed = 100
+export(int) var jump_speed = 200
+export(int) var gravity = 500
 
 var velocity = Vector2.ZERO
 
 func _physics_process(delta):
 	apply_gravity(delta)
-	apply_controller_movement()
+	if has_controller():
+		apply_controller_movement()
 	move()
 
 func apply_controller_movement():
@@ -18,11 +19,14 @@ func apply_controller_movement():
 
 func apply_gravity(delta):
 	if !body.is_on_floor():
-		if velocity.y<600:
+		if velocity.y < jump_speed:
 			velocity.y += gravity * delta
 
 func move():
 	body.move_and_slide(velocity, Vector2.UP)
+
+func has_controller() -> bool:
+	return has_node("Controller")
 
 func is_moving_right() -> bool:
 	return velocity.x > 0
