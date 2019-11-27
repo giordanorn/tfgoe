@@ -1,38 +1,51 @@
 extends Node2D
 
-onready var game_info = get_node("/root/GameController")
+func update_text():
+	$HUD/Menu/Bars/ASPDContainer/ASPDLabel.text = "Current value: "+str(GameController.current_aspd["value"])+"\nCost to Evolve: "+str(GameController.current_aspd["cost"])
+	$HUD/Menu/Bars/MSPDContainer/MSPDLabel.text = "Current value: "+str(GameController.current_mspd["value"])+"\nCost to Evolve: "+str(GameController.current_mspd["cost"])
+	$HUD/Menu/Bars/DamageContainer/DamageLabel.text = "Current value: "+str(GameController.current_damage["value"])+"\nCost to evolve: "+str(GameController.current_damage["cost"])
+	$HUD/Menu/Bars/HealthContainer/HealthLabel.text = "Current value: "+str(GameController.max_hp["value"])+"\nCost do Evolve: "+str(GameController.max_hp["cost"])
+
+func _ready():
+	update_text()
 
 func _process(delta):
-	if game_info.xp<game_info.current_aspd["cost"]:
+	if GameController.xp<GameController.current_aspd["cost"]:
 		get_node("HUD/Menu/Bars/ASPDContainer/ASPDButton").set_disabled(true)
-	if game_info.xp<game_info.current_mspd["cost"]:
+	if GameController.xp<GameController.current_mspd["cost"]:
 		get_node("HUD/Menu/Bars/MSPDContainer/MSPDButton").set_disabled(true)
-	if game_info.xp<game_info.max_hp["cost"]:
+	if GameController.xp<GameController.max_hp["cost"]:
 		get_node("HUD/Menu/Bars/HealthContainer/HealthButton").set_disabled(true)
-	if game_info.xp<game_info.current_damage["cost"]:
+	if GameController.xp<GameController.current_damage["cost"]:
 		get_node("HUD/Menu/Bars/DamageContainer/DamageButton").set_disabled(true)
 
 func _on_DamageButton_button_up():
-	game_info.current_damage["value"]+=int(game_info.current_damage["value"]/5)+1
-	game_info.xp-=game_info.current_damage["cost"]
-	game_info.current_damage["cost"]+=1
-	game_info.evolving = true
+	GameController.current_damage["value"]+=int(GameController.current_damage["value"]/5)+1
+	GameController.xp-=GameController.current_damage["cost"]
+	GameController.current_damage["cost"]+=1
+	update_text()
 
 func _on_HealthButton_button_up():
-	game_info.current_hp+=int(game_info.max_hp["value"]/10)+1
-	game_info.max_hp["value"]+=int(game_info.max_hp["value"]/10)+1
-	game_info.xp-=game_info.max_hp["cost"]
-	game_info.max_hp["cost"]+=1
-	game_info.evolving = true
+	GameController.current_hp+=int(GameController.max_hp["value"]/10)+1
+	GameController.max_hp["value"]+=int(GameController.max_hp["value"]/10)+1
+	GameController.xp-=GameController.max_hp["cost"]
+	GameController.max_hp["cost"]+=1
+	update_text()
 
 func _on_ASPDButton_button_up():
-	game_info.current_aspd["value"]-=0.02
-	game_info.xp-=game_info.current_aspd["cost"]
-	game_info.current_aspd["cost"]+=1
-	game_info.evolving = true
+	GameController.current_aspd["value"]-=0.02
+	GameController.xp-=GameController.current_aspd["cost"]
+	GameController.current_aspd["cost"]+=1
+	update_text()
 
 func _on_MSPDButton_button_up():
-	game_info.current_mspd["value"]+=10
-	game_info.xp-=game_info.current_mspd["cost"]
-	game_info.current_mspd["cost"]+=1
-	game_info.evolving = true
+	GameController.current_mspd["value"]+=10
+	GameController.xp-=GameController.current_mspd["cost"]
+	GameController.current_mspd["cost"]+=1
+	update_text()
+
+
+func _on_Button_button_up():
+	GameController.current_stage+=1
+	print("res://States/Stages/Stage"+str(GameController.current_stage)+".tscn")
+	get_tree().change_scene("res://States/Stages/Forest/Stage"+str(GameController.current_stage)+".tscn")

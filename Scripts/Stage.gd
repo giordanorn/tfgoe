@@ -1,9 +1,6 @@
 extends Node2D
 
 onready var game_info = get_node("/root/GameController")
-var elf_info = "res://Characters/Players/Elf.tscn"
-var wiz_info = "res://Characters/Players/Wizard.tscn"
-var knt_info = "res://Characters/Players/Knight.tscn"
 var character
 
 func _ready():

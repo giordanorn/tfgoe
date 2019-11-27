@@ -12,6 +12,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="Bars" type="HBoxContainer" parent="HUD/Menu"]
+editor/display_folded = true
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -89,7 +90,15 @@ margin_top = 35.0
 margin_right = 106.0
 margin_bottom = 55.0
 text = "Mov. Speed"
+
+[node name="Button" type="Button" parent="HUD/Menu"]
+margin_left = 894.737
+margin_top = 529.947
+margin_right = 974.737
+margin_bottom = 549.947
+text = "Next Stage"
 [connection signal="button_up" from="HUD/Menu/Bars/DamageContainer/DamageButton" to="." method="_on_DamageButton_button_up"]
 [connection signal="button_up" from="HUD/Menu/Bars/HealthContainer/HealthButton" to="." method="_on_HealthButton_button_up"]
 [connection signal="button_up" from="HUD/Menu/Bars/ASPDContainer/ASPDButton" to="." method="_on_ASPDButton_button_up"]
 [connection signal="button_up" from="HUD/Menu/Bars/MSPDContainer/MSPDButton" to="." method="_on_MSPDButton_button_up"]
+[connection signal="button_up" from="HUD/Menu/Button" to="." method="_on_Button_button_up"]
