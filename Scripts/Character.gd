@@ -35,6 +35,10 @@ func update_sprite() -> bool:
 			$AnimatedSprite.flip_h = true
 		else:
 			$AnimatedSprite.animation = "idle"
+		
+		if has_node("FrontAttack") && $FrontAttack.is_attacking():
+			$AnimatedSprite.animation = "hit"
+		
 		return true
 
 func take_damage(damage:int) -> bool:
