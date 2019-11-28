@@ -31,8 +31,8 @@ animations = [ {
 
 [node name="OrcPursuer" type="KinematicBody2D" groups=[
 "character",
-"enemy",
 "orc",
+"enemy",
 "pursuer",
 ]]
 collision_layer = 2
@@ -49,15 +49,17 @@ position = Vector2( 0, -4 )
 frames = SubResource( 2 )
 animation = "idle"
 frame = 3
+speed_scale = 1.5
 playing = true
 
 [node name="Health" parent="." instance=ExtResource( 10 )]
-current_hp = 3
-max_hp = 3
 
 [node name="ContactAttack" parent="." instance=ExtResource( 11 )]
 
 [node name="Movement" parent="." instance=ExtResource( 12 )]
 speed = 10
+
+[node name="Controller" parent="Movement" index="0"]
+chase_speed = 60
 
 [editable path="Movement"]
