@@ -54,6 +54,11 @@ func update_sprite() -> bool:
 	if has_node("FrontAttack") && $FrontAttack.is_attacking():
 		$AnimatedSprite.animation = "hit"
 	
+	if not can_take_damage():
+		$AnimatedSprite.modulate.a = 0.5
+	else:
+		$AnimatedSprite.modulate.a = 1.0
+	
 	return true
 
 
