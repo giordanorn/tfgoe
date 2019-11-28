@@ -1,8 +1,23 @@
 extends KinematicBody2D
 
-export (String) var nickname = ""
+export var nickname: = ""
 
-func _process(delta):
+# Immunity time after take damage
+export var has_immunity: = false
+# Immunity time after take damage
+export var immunity_cooldown: = 1.0
+
+var immunity_timer
+
+
+func _ready() -> void:
+	if has_immunity:
+		immunity_timer = Timer.new()
+		immunity_timer.one_shot = true
+		add_child(immunity_timer)
+
+
+func _process(delta) -> void:
 	if self.is_in_group("player") and !GameController.starting_stats_defined:
 		GameController.current_mspd["value"] = get_node("Movement").speed
 		GameController.current_aspd["value"] = get_node("FrontAttack").animation_time
@@ -26,33 +41,44 @@ func _process(delta):
 func update_sprite() -> bool:
 	if not has_sprite() or not has_movement():
 		return false
+
+	if $Movement.is_moving_right():
+		$AnimatedSprite.animation = "run"
+		$AnimatedSprite.flip_h = false
+	elif $Movement.is_moving_left():
+		$AnimatedSprite.animation = "run"
+		$AnimatedSprite.flip_h = true
 	else:
-		if $Movement.is_moving_right():
-			$AnimatedSprite.animation = "run"
-			$AnimatedSprite.flip_h = false
-		elif $Movement.is_moving_left():
-			$AnimatedSprite.animation = "run"
-			$AnimatedSprite.flip_h = true
-		else:
-			$AnimatedSprite.animation = "idle"
-		
-		if has_node("FrontAttack") && $FrontAttack.is_attacking():
-			$AnimatedSprite.animation = "hit"
-		
-		return true
+		$AnimatedSprite.animation = "idle"
+	
+	if has_node("FrontAttack") && $FrontAttack.is_attacking():
+		$AnimatedSprite.animation = "hit"
+	
+	return true
 
 
 func take_damage(damage:int) -> bool:
-	if has_health():
-		"""
-		Aqui devem ser feito os tratamentos no damage
-		antes de aplicar a função de receber o dano.
-		"""
-		print (nickname, ": receiving ", damage, " of damage, I have ", $Health.current_hp, " of current HP")
-		return $Health.reduce_current_hp(damage)
-	else:
+	if not has_health():
 		print_debug("character has no health")
 		return false
+	if not can_take_damage():
+		return false
+		
+	"""
+	Aqui devem ser feito os tratamentos no damage
+	antes de aplicar a função de receber o dano.
+	"""
+	
+	print (nickname, ": receiving ", damage, " of damage, I have ", $Health.current_hp, " of current HP")
+	
+	if has_immunity:
+		immunity_timer.start(immunity_cooldown)
+	
+	return $Health.reduce_current_hp(damage)
+
+
+func can_take_damage() -> bool:
+	return not has_immunity or immunity_timer.is_stopped()
 
 
 func is_alive() -> bool:

@@ -22,7 +22,7 @@ func _ready() -> void:
 func get_input(velocity, speed, jump_speed) -> Vector2:
 	if can_chase() and is_detecting:
 		var my_x: = movement.body.global_position.x as int
-		var my_y: =movement.body.global_position.y as int
+		var my_y: = movement.body.global_position.y as int
 		var target_x: = target.global_position.x as int
 		var target_y: = target.global_position.y as int
 		
@@ -64,7 +64,6 @@ func _on_DetectArea_body_entered(body) -> void:
 		$FlipDirection.stop()
 		target = body
 		is_detecting = true
-		print (direction)
 
 
 func _on_DetectArea_body_exited(body) -> void:

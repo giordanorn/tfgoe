@@ -14,3 +14,4 @@ strength = 1
 [node name="Shape" type="CollisionShape2D" parent="HitArea"]
 shape = SubResource( 1 )
 [connection signal="body_entered" from="HitArea" to="." method="_on_HitArea_body_entered"]
+[connection signal="body_exited" from="HitArea" to="." method="_on_HitArea_body_exited"]
