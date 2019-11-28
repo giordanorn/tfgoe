@@ -98,6 +98,12 @@ func rip():
 	queue_free()
 	if self.is_in_group("player"):
 		get_tree().change_scene("res://States/Game Over.tscn")
+		GameController.starting_stats_defined = false
+		GameController.total_score = 0
+		GameController.selected_character = 0
+		GameController.current_stage = 1
+		GameController.xp = 0
+		GameController.evolving = false
 	if self.is_in_group("enemy"):
 		GameController.xp+=1
 		GameController.total_score+=1
