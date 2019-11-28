@@ -57,3 +57,5 @@ playing = true
 
 [node name="Movement" parent="." instance=ExtResource( 12 )]
 speed = 10
+
+[editable path="Movement"]
