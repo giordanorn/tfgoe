@@ -3,6 +3,7 @@ extends Node
 export (int) var current_hp = 2
 export (int) var max_hp = 2
 
+
 func set_max_hp(value:int):
 	if value<0:
 		print_debug("tentativa de setar o hp maximo para um valor negativo")
@@ -12,6 +13,7 @@ func set_max_hp(value:int):
 			current_hp=max_hp
 		if get_parent().is_in_group("player"):
 			GameController.max_hp = max_hp
+
 
 func set_current_hp(value:int):
 	if value<0:
@@ -24,6 +26,7 @@ func set_current_hp(value:int):
 		if get_parent().is_in_group("player"):
 			GameController.current_hp = current_hp
 
+
 func reduce_current_hp(value:int) -> bool:
 	if value < 0:
 		print_debug("can't reduce current hp in a negative value")
@@ -33,6 +36,7 @@ func reduce_current_hp(value:int) -> bool:
 		if get_parent().is_in_group("player"):
 			GameController.current_hp = current_hp
 		return true
+
 
 func reduce_max_hp(value:int) -> bool:
 	"""
@@ -51,6 +55,7 @@ func reduce_max_hp(value:int) -> bool:
 			GameController.current_hp = current_hp
 		return true
 
+
 func increase_current_hp(value:int):
 	if value<0:
 		print_debug("tentativa de aumentar o hp com um valor negativo")
@@ -62,6 +67,7 @@ func increase_current_hp(value:int):
 		if get_parent().is_in_group("player"):
 			GameController.current_hp = current_hp
 
+
 func increase_max_hp(value:int):
 	if value<0:
 		print_debug("tentativa de aumentar o hp maximo por um valor negativo")
@@ -72,8 +78,10 @@ func increase_max_hp(value:int):
 			GameController.current_hp = current_hp
 			GameController.max_hp = max_hp
 
+
 func reset_hp():
 	current_hp=0
-	
+
+
 func is_empty() -> bool:
 	return current_hp == 0

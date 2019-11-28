@@ -2,6 +2,7 @@ extends Node2D
 
 var character
 
+
 func _ready():
 	if GameController.selected_character == 2:
 		character = load("res://Characters/Players/Elf.tscn") as PackedScene

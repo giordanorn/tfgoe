@@ -2,6 +2,7 @@ extends Node
 
 onready var movement = get_parent()
 
+
 func get_input(velocity) -> Vector2:
 	if Input.is_action_pressed("ui_left"):
 		velocity.x -= movement.speed

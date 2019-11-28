@@ -22,6 +22,7 @@ func _process(delta):
 	else:
 		rip()
 
+
 func update_sprite() -> bool:
 	if not has_sprite() or not has_movement():
 		return false
@@ -36,6 +37,7 @@ func update_sprite() -> bool:
 			$AnimatedSprite.animation = "idle"
 		return true
 
+
 func take_damage(damage:int) -> bool:
 	if has_health():
 		"""
@@ -48,8 +50,10 @@ func take_damage(damage:int) -> bool:
 		print_debug("character has no health")
 		return false
 
+
 func is_alive() -> bool:
 	return not $Health.is_empty()
+
 
 func rip():
 	"""
@@ -63,23 +67,29 @@ func rip():
 		GameController.xp+=1
 		GameController.total_score+=1
 
+
 func is_facing_right() -> bool:
 	if has_sprite():
 		return !$AnimatedSprite.flip_h
 	else:
 		return true
 
+
 func is_facing_left() -> bool:
 	return not is_facing_right()
+
 
 func has_health() -> bool:
 	return has_node("Health")
 
+
 func has_sprite() -> bool:
 	return has_node("AnimatedSprite")
 
+
 func has_movement() -> bool:
 	return has_node("Movement")
+
 
 func has_HUD() -> bool:
 	return has_node("HUD")
