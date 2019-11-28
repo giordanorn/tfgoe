@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scripts/Movement/Movement.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Movement/IAController.gd" type="Script" id=2]
+
+[node name="Movement" type="Node2D"]
+script = ExtResource( 1 )
+speed = 30
+
+[node name="Controller" type="Node2D" parent="."]
+script = ExtResource( 2 )
+
+[node name="FlipDirection" type="Timer" parent="Controller"]
+wait_time = 3.0
+one_shot = true
+autostart = true
+[connection signal="timeout" from="Controller/FlipDirection" to="Controller" method="_on_Timer_timeout"]
