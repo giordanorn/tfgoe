@@ -42,6 +42,7 @@ animations = [ {
 ]]
 script = ExtResource( 1 )
 nickname = "Elf"
+has_immunity = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, -1 )
@@ -50,15 +51,18 @@ shape = SubResource( 1 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 2 )
 animation = "idle"
-frame = 3
 playing = true
 offset = Vector2( 0, -6 )
 
 [node name="Movement" parent="." instance=ExtResource( 10 )]
 
 [node name="Health" parent="." instance=ExtResource( 11 )]
+current_hp = 6
+max_hp = 6
 
 [node name="FrontAttack" parent="." instance=ExtResource( 12 )]
+editor/display_folded = true
+animation_time = 0.2
 
 [node name="Shape" parent="FrontAttack/HitArea" index="0"]
 scale = Vector2( 1.4, 0.4 )
@@ -66,7 +70,7 @@ scale = Vector2( 1.4, 0.4 )
 [node name="AnimatedSprite" parent="FrontAttack/HitArea" index="1"]
 scale = Vector2( 0.11, 0.09 )
 animation = "ElfBaseAttack"
-frame = 5
+frame = 2
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true

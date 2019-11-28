@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Scripts/Character.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Characters/Bodies/ogre_idle_anim_f0.png" type="Texture" id=2]
@@ -11,6 +11,9 @@
 [ext_resource path="res://Sprites/Characters/Bodies/ogre_run_anim_f3.png" type="Texture" id=9]
 [ext_resource path="res://Utils/Health.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Utils/ContactAttack.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Scripts/Attack/CharacterSpawner.gd" type="Script" id=12]
+[ext_resource path="res://Scripts/Movement/Movement.gd" type="Script" id=13]
+[ext_resource path="res://Scripts/Movement/IAController.gd" type="Script" id=14]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 10, 14 )
@@ -28,11 +31,14 @@ animations = [ {
 "speed": 10.0
 } ]
 
+[sub_resource type="CircleShape2D" id=3]
+radius = 468.427
+
 [node name="OrcBoss" type="KinematicBody2D" groups=[
 "character",
+"enemy",
 "orc",
 "boss",
-"enemy",
 ]]
 collision_layer = 2
 collision_mask = 0
@@ -46,10 +52,44 @@ shape = SubResource( 1 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 2 )
 animation = "idle"
-frame = 1
+speed_scale = 0.5
 playing = true
 offset = Vector2( 0, -8 )
 
 [node name="Health" parent="." instance=ExtResource( 10 )]
+current_hp = 50
+max_hp = 50
 
 [node name="ContactAttack" parent="." instance=ExtResource( 11 )]
+strength = 5
+
+[node name="CharacterSpawner" type="Node2D" parent="."]
+position = Vector2( 0, -16 )
+script = ExtResource( 12 )
+character = "res://Characters/Enemies/Orcs/OrcPursuer.tscn"
+active_spawning_interval = 0.5
+
+[node name="Movement" type="Node2D" parent="."]
+script = ExtResource( 13 )
+speed = 10
+jump_speed = 80
+gravity = 200
+
+[node name="Controller" type="Node2D" parent="Movement"]
+script = ExtResource( 14 )
+chase_speed = 0
+
+[node name="FlipDirection" type="Timer" parent="Movement/Controller"]
+wait_time = 3.0
+one_shot = true
+autostart = true
+
+[node name="DetectArea" type="Area2D" parent="Movement/Controller"]
+
+[node name="Shape" type="CollisionShape2D" parent="Movement/Controller/DetectArea"]
+shape = SubResource( 3 )
+[connection signal="timeout" from="Movement/Controller/FlipDirection" to="Movement/Controller" method="_on_Timer_timeout"]
+[connection signal="body_entered" from="Movement/Controller/DetectArea" to="Movement/Controller" method="_on_DetectArea_body_entered"]
+[connection signal="body_entered" from="Movement/Controller/DetectArea" to="CharacterSpawner" method="_on_DetectArea_body_entered"]
+[connection signal="body_exited" from="Movement/Controller/DetectArea" to="Movement/Controller" method="_on_DetectArea_body_exited"]
+[connection signal="body_exited" from="Movement/Controller/DetectArea" to="CharacterSpawner" method="_on_DetectArea_body_exited"]

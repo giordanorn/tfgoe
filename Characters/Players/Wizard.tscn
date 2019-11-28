@@ -43,6 +43,7 @@ animations = [ {
 ]]
 script = ExtResource( 1 )
 nickname = "Wizard"
+has_immunity = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 1 )
@@ -52,15 +53,19 @@ shape = SubResource( 1 )
 position = Vector2( 0, -6 )
 frames = SubResource( 2 )
 animation = "idle"
-frame = 3
+frame = 2
 playing = true
 
 [node name="Movement" parent="." instance=ExtResource( 11 )]
 
 [node name="Health" parent="." instance=ExtResource( 12 )]
+current_hp = 5
+max_hp = 5
 
 [node name="FrontAttack" parent="." instance=ExtResource( 13 )]
 editor/display_folded = true
+strength = 3
+cooldown = 0.25
 
 [node name="Shape" parent="FrontAttack/HitArea" index="0"]
 scale = Vector2( 3, 1 )

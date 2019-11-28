@@ -31,11 +31,10 @@ animations = [ {
 
 [node name="OrcBrawler" type="KinematicBody2D" groups=[
 "character",
-"brawler",
-"orc",
 "enemy",
+"orc",
+"brawler",
 ]]
-editor/display_folded = true
 collision_layer = 2
 collision_mask = 0
 script = ExtResource( 1 )
@@ -48,11 +47,12 @@ shape = SubResource( 1 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 2 )
 animation = "idle"
-frame = 1
 playing = true
 offset = Vector2( -1, -2 )
 
 [node name="Health" parent="." instance=ExtResource( 10 )]
+current_hp = 5
+max_hp = 5
 
 [node name="ContactAttack" parent="." instance=ExtResource( 11 )]
 
