@@ -30,10 +30,10 @@ animations = [ {
 } ]
 
 [node name="OrcTanker" type="KinematicBody2D" groups=[
-"enemy",
 "character",
-"tanker",
+"enemy",
 "orc",
+"tanker",
 ]]
 collision_layer = 2
 collision_mask = 0
@@ -47,13 +47,15 @@ shape = SubResource( 1 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 2 )
 animation = "idle"
-frame = 2
 playing = true
 offset = Vector2( -1, -2 )
 
 [node name="Health" parent="." instance=ExtResource( 10 )]
+current_hp = 8
+max_hp = 8
 
 [node name="ContactAttack" parent="." instance=ExtResource( 11 )]
+strength = 3
 
 [node name="Movement" parent="." instance=ExtResource( 12 )]
 speed = 40

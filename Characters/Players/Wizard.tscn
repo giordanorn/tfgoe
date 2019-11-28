@@ -53,6 +53,7 @@ shape = SubResource( 1 )
 position = Vector2( 0, -6 )
 frames = SubResource( 2 )
 animation = "idle"
+frame = 2
 playing = true
 
 [node name="Movement" parent="." instance=ExtResource( 11 )]
@@ -63,13 +64,15 @@ max_hp = 5
 
 [node name="FrontAttack" parent="." instance=ExtResource( 13 )]
 editor/display_folded = true
+strength = 3
+cooldown = 0.25
 
 [node name="Shape" parent="FrontAttack/HitArea" index="0"]
 scale = Vector2( 3, 1 )
 
 [node name="AnimatedSprite" parent="FrontAttack/HitArea" index="1"]
 scale = Vector2( 0.24, 0.24 )
-frame = 4
+frame = 5
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
