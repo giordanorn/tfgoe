@@ -53,7 +53,6 @@ func _on_MSPDButton_button_up():
 
 
 func _on_Button_button_up():
-	GameController.current_stage+=1
 	if GameController.current_stage>=3:
 		get_tree().change_scene("res://States/Game Over.tscn")
 	else:

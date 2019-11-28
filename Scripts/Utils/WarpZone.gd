@@ -9,4 +9,5 @@ func _on_Area2D_body_entered(body):
 	"""
 	if body.is_in_group("player"):
 		GameController.evolving = true
-		get_tree().change_scene("res://States/Checkpoint.tscn")
+		GameController.current_stage+=1
+		get_tree().change_scene("res://States/Lore.tscn")
