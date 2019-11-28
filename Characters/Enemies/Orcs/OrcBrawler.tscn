@@ -57,3 +57,8 @@ offset = Vector2( -1, -2 )
 [node name="ContactAttack" parent="." instance=ExtResource( 11 )]
 
 [node name="Movement" parent="." instance=ExtResource( 12 )]
+
+[node name="Shape" parent="Movement/Controller/DetectArea" index="0"]
+disabled = true
+
+[editable path="Movement"]
