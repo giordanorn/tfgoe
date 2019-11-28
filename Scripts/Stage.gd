@@ -14,4 +14,7 @@ func _ready():
 		print("invalid character choice")
 	character=character.instance()
 	self.add_child(character)
-	character.position = Vector2(16,70)
+	if GameController.current_stage == 3:
+		character.position = Vector2(-165,-145)
+	else:
+		character.position = Vector2(16,70)
