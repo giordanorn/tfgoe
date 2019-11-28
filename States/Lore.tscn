@@ -15,30 +15,49 @@ anchor_bottom = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-margin_top = -7.0
-margin_bottom = 7.0
+margin_left = 103.0
+margin_top = -153.0
+margin_right = -122.0
+margin_bottom = -129.0
 autowrap = true
 
-[node name="Next" type="Button" parent="HUD/Control"]
-margin_left = 908.717
-margin_top = 559.044
-margin_right = 979.717
-margin_bottom = 579.044
+[node name="Buttons" type="Control" parent="HUD/Control"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -343.0
+margin_top = -157.0
+margin_right = 343.0
+
+[node name="Next" type="Button" parent="HUD/Control/Buttons"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -71.0
+margin_top = -10.0
+margin_bottom = 10.0
 text = "Next Part"
 
-[node name="Previous" type="Button" parent="HUD/Control"]
-margin_left = 28.0602
-margin_top = 552.569
-margin_right = 124.06
-margin_bottom = 572.569
+[node name="Previous" type="Button" parent="HUD/Control/Buttons"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_top = -10.0
+margin_right = 96.0
+margin_bottom = 10.0
 text = "Previous Part"
 
-[node name="NextStage" type="Button" parent="HUD/Control"]
-margin_left = 451.121
-margin_top = 552.569
-margin_right = 564.121
-margin_bottom = 572.569
+[node name="NextStage" type="Button" parent="HUD/Control/Buttons"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -56.5
+margin_top = -10.0
+margin_right = 56.5
+margin_bottom = 10.0
 text = "Start Next Stage"
-[connection signal="button_up" from="HUD/Control/Next" to="." method="_on_Next_button_up"]
-[connection signal="button_up" from="HUD/Control/Previous" to="." method="_on_Previous_button_up"]
-[connection signal="button_up" from="HUD/Control/NextStage" to="." method="_on_NextStage_button_up"]
+[connection signal="button_up" from="HUD/Control/Buttons/Next" to="." method="_on_Next_button_up"]
+[connection signal="button_up" from="HUD/Control/Buttons/Previous" to="." method="_on_Previous_button_up"]
+[connection signal="button_up" from="HUD/Control/Buttons/NextStage" to="." method="_on_NextStage_button_up"]

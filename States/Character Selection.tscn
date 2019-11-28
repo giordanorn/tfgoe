@@ -1,23 +1,106 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://Scripts/Character Selection.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/Characters/Bodies/elf_m_idle_anim_f0.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Characters/Bodies/elf_m_idle_anim_f1.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Characters/Bodies/elf_m_idle_anim_f2.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Characters/Bodies/elf_m_idle_anim_f3.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Characters/Bodies/elf_m_run_anim_f0.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/Characters/Bodies/elf_m_run_anim_f1.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Characters/Bodies/elf_m_run_anim_f2.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/Characters/Bodies/elf_m_run_anim_f3.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/Characters/Bodies/wizzard_m_idle_anim_f0.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/Characters/Bodies/wizzard_m_idle_anim_f1.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/Characters/Bodies/wizzard_m_idle_anim_f2.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/Characters/Bodies/wizzard_m_idle_anim_f3.png" type="Texture" id=13]
+[ext_resource path="res://Sprites/Characters/Bodies/wizzard_m_run_anim_f0.png" type="Texture" id=14]
+[ext_resource path="res://Sprites/Characters/Bodies/wizzard_m_run_anim_f1.png" type="Texture" id=15]
+[ext_resource path="res://Sprites/Characters/Bodies/wizzard_m_run_anim_f2.png" type="Texture" id=16]
+[ext_resource path="res://Sprites/Characters/Bodies/wizzard_m_run_anim_f3.png" type="Texture" id=17]
+[ext_resource path="res://Sprites/Characters/Bodies/wizzard_m_hit_anim_f0.png" type="Texture" id=18]
+[ext_resource path="res://Sprites/Characters/Bodies/knight_m_idle_anim_f0.png" type="Texture" id=19]
+[ext_resource path="res://Sprites/Characters/Bodies/knight_m_idle_anim_f1.png" type="Texture" id=20]
+[ext_resource path="res://Sprites/Characters/Bodies/knight_m_idle_anim_f2.png" type="Texture" id=21]
+[ext_resource path="res://Sprites/Characters/Bodies/knight_m_idle_anim_f3.png" type="Texture" id=22]
+[ext_resource path="res://Sprites/Characters/Bodies/knight_m_run_anim_f0.png" type="Texture" id=23]
+[ext_resource path="res://Sprites/Characters/Bodies/knight_m_run_anim_f1.png" type="Texture" id=24]
+[ext_resource path="res://Sprites/Characters/Bodies/knight_m_run_anim_f2.png" type="Texture" id=25]
+[ext_resource path="res://Sprites/Characters/Bodies/knight_m_run_anim_f3.png" type="Texture" id=26]
+[ext_resource path="res://Sprites/Characters/Bodies/knight_m_hit_anim_f0.png" type="Texture" id=27]
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "idle",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "run",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 9 ), ExtResource( 9 ), ExtResource( 9 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "hit",
+"speed": 10.0
+} ]
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ) ],
+"loop": true,
+"name": "idle",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ) ],
+"loop": true,
+"name": "run",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 18 ) ],
+"loop": true,
+"name": "hit",
+"speed": 10.0
+} ]
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ) ],
+"loop": true,
+"name": "idle",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ) ],
+"loop": true,
+"name": "run",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 27 ) ],
+"loop": true,
+"name": "hit",
+"speed": 10.0
+} ]
 
 [node name="Character Selection" type="Node2D"]
 script = ExtResource( 1 )
 
 [node name="HUD" type="CanvasLayer" parent="."]
 
-[node name="Control" type="Control" parent="HUD"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -189.0
-margin_top = -69.5
-margin_right = 189.0
-margin_bottom = 69.5
+[node name="Interface" type="Control" parent="HUD"]
+anchor_right = 1.0
+anchor_bottom = 1.0
 
-[node name="Knight" type="Button" parent="HUD/Control"]
+[node name="Characters" type="Control" parent="HUD/Interface"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -272.5
+margin_top = -139.0
+margin_right = 272.5
+
+[node name="Knight" type="Button" parent="HUD/Interface/Characters"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -28,7 +111,7 @@ margin_right = 29.0
 margin_bottom = 10.5
 text = "Knight"
 
-[node name="Elf" type="Button" parent="HUD/Control"]
+[node name="Elf" type="Button" parent="HUD/Interface/Characters"]
 anchor_top = 0.5
 anchor_bottom = 0.5
 margin_top = -9.5
@@ -36,7 +119,7 @@ margin_right = 56.0
 margin_bottom = 10.5
 text = "Elf"
 
-[node name="Wizard" type="Button" parent="HUD/Control"]
+[node name="Wizard" type="Button" parent="HUD/Interface/Characters"]
 anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
@@ -45,6 +128,66 @@ margin_left = -56.0
 margin_top = -10.0
 margin_bottom = 10.0
 text = "Wizard"
-[connection signal="button_up" from="HUD/Control/Knight" to="." method="_on_Knight_button_up"]
-[connection signal="button_up" from="HUD/Control/Elf" to="." method="_on_Elf_button_up"]
-[connection signal="button_up" from="HUD/Control/Wizard" to="." method="_on_Wizard_button_up"]
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="HUD/Interface/Characters"]
+position = Vector2( 27, 12 )
+scale = Vector2( 3, 3 )
+frames = SubResource( 2 )
+animation = "idle"
+frame = 1
+playing = true
+offset = Vector2( 0, -6 )
+
+[node name="AnimatedSprite2" type="AnimatedSprite" parent="HUD/Interface/Characters"]
+position = Vector2( 518, -8 )
+scale = Vector2( 3, 3 )
+frames = SubResource( 3 )
+animation = "idle"
+frame = 3
+playing = true
+
+[node name="AnimatedSprite3" type="AnimatedSprite" parent="HUD/Interface/Characters"]
+position = Vector2( 276.142, -6.53564 )
+scale = Vector2( 3, 3 )
+frames = SubResource( 4 )
+animation = "idle"
+frame = 2
+playing = true
+
+[node name="Control" type="Control" parent="HUD/Interface"]
+anchor_right = 1.0
+margin_bottom = 241.0
+
+[node name="Label" type="Label" parent="HUD/Interface/Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -387.5
+margin_top = 25.5
+margin_right = 401.5
+margin_bottom = 175.5
+text = "    Aparentemente os monstros do submundo estão espalhando-se pela região, e as nações já estão mobilizando 
+seus exércitos para prevenir quaisquer danos causados pelas possíveis ondas de invasões. O clima é de alarme e terror.
+Três Campeões foram unicamente selecionados, dentre os melhores dos melhores, para concluir esta tarefa vital. 
+    Da nação élfica de Valheim, o filho do atual general, treinado por mais de 100 anos na arte do combate, armado apenas
+	com suas adagas e sua descomunal destreza, foi o selecionado.
+    Da Teocracia de Tyrien, o membro mais promissor da ordem de paladinos responsáveis por proteger o próprio arcebispo
+foi enviado para cumprir com seu dever sagrado de manter o mal afastado da população.
+    E, por fim, o ancião responsável por supervisionar todo o estudo arcano na cidade-academia de Silvery-Io, mestre
+no domínio da chama e do relâmpago, partiu em viagem para pesquisar sobre a estrutura do selo e maneiras de fortificá-la."
+
+[node name="Label2" type="Label" parent="HUD/Interface/Control"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -77.0
+margin_top = 110.0
+margin_right = 77.0
+margin_bottom = 124.0
+rect_scale = Vector2( 1.2, 1.2 )
+text = "Selecione um campeão:"
+[connection signal="button_up" from="HUD/Interface/Characters/Knight" to="." method="_on_Knight_button_up"]
+[connection signal="button_up" from="HUD/Interface/Characters/Elf" to="." method="_on_Elf_button_up"]
+[connection signal="button_up" from="HUD/Interface/Characters/Wizard" to="." method="_on_Wizard_button_up"]
