@@ -37,11 +37,12 @@ animations = [ {
 
 [node name="Elf" type="KinematicBody2D" groups=[
 "character",
-"player",
 "elf",
+"player",
 ]]
 script = ExtResource( 1 )
 nickname = "Elf"
+has_immunity = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, -1 )
@@ -57,8 +58,11 @@ offset = Vector2( 0, -6 )
 [node name="Movement" parent="." instance=ExtResource( 10 )]
 
 [node name="Health" parent="." instance=ExtResource( 11 )]
+current_hp = 6
+max_hp = 6
 
 [node name="FrontAttack" parent="." instance=ExtResource( 12 )]
+editor/display_folded = true
 
 [node name="Shape" parent="FrontAttack/HitArea" index="0"]
 scale = Vector2( 1.4, 0.4 )
