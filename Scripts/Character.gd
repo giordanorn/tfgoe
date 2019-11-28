@@ -1,23 +1,22 @@
 extends KinematicBody2D
 
-onready var game_info = get_node("/root/GameController")
 export (String) var nickname = ""
 
 func _process(delta):
-	if self.is_in_group("player") and !game_info.starting_stats_defined:
-		game_info.current_mspd["value"] = get_node("Movement").speed
-		game_info.current_aspd["value"] = get_node("FrontAttack").animation_time
-		game_info.current_damage["value"] = get_node("FrontAttack").strength
-		game_info.max_hp["value"] = get_node("Health").max_hp
-		game_info.current_hp = get_node("Health").current_hp
-		game_info.starting_stats_defined = true
-	if self.is_in_group("player") and game_info.evolving:
-		get_node("Movement").speed = game_info.current_mspd["value"]
-		get_node("FrontAttack").animation_time = game_info.current_aspd["value"]
-		get_node("FrontAttack").strength = game_info.current_damage["value"]
-		get_node("Health").max_hp = game_info.max_hp["value"]
-		get_node("Health").current_hp = game_info.current_hp
-		game_info.evolving = false
+	if self.is_in_group("player") and !GameController.starting_stats_defined:
+		GameController.current_mspd["value"] = get_node("Movement").speed
+		GameController.current_aspd["value"] = get_node("FrontAttack").animation_time
+		GameController.current_damage["value"] = get_node("FrontAttack").strength
+		GameController.max_hp["value"] = get_node("Health").max_hp
+		GameController.current_hp = get_node("Health").current_hp
+		GameController.starting_stats_defined = true
+	if self.is_in_group("player") and GameController.evolving:
+		get_node("Movement").speed = GameController.current_mspd["value"]
+		get_node("FrontAttack").animation_time = GameController.current_aspd["value"]
+		get_node("FrontAttack").strength = GameController.current_damage["value"]
+		get_node("Health").max_hp = GameController.max_hp["value"]
+		get_node("Health").current_hp = GameController.current_hp
+		GameController.evolving = false
 	if is_alive():
 		update_sprite()
 	else:
@@ -61,8 +60,8 @@ func rip():
 	if self.is_in_group("player"):
 		get_tree().change_scene("res://States/Game Over.tscn")
 	if self.is_in_group("enemy"):
-		game_info.xp+=1
-		game_info.total_score+=1
+		GameController.xp+=1
+		GameController.total_score+=1
 
 func is_facing_right() -> bool:
 	if has_sprite():

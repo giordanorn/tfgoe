@@ -1,6 +1,5 @@
 extends Node
 
-onready var game_info = get_node("/root/GameController")
 export (int) var current_hp = 2
 export (int) var max_hp = 2
 
@@ -12,7 +11,7 @@ func set_max_hp(value:int):
 		if current_hp>max_hp:
 			current_hp=max_hp
 		if get_parent().is_in_group("player"):
-			game_info.max_hp = max_hp
+			GameController.max_hp = max_hp
 
 func set_current_hp(value:int):
 	if value<0:
@@ -23,7 +22,7 @@ func set_current_hp(value:int):
 		else:
 			current_hp=value
 		if get_parent().is_in_group("player"):
-			game_info.current_hp = current_hp
+			GameController.current_hp = current_hp
 
 func reduce_current_hp(value:int) -> bool:
 	if value < 0:
@@ -32,7 +31,7 @@ func reduce_current_hp(value:int) -> bool:
 	else:
 		current_hp = max(0, current_hp - value)
 		if get_parent().is_in_group("player"):
-			game_info.current_hp = current_hp
+			GameController.current_hp = current_hp
 		return true
 
 func reduce_max_hp(value:int) -> bool:
@@ -48,8 +47,8 @@ func reduce_max_hp(value:int) -> bool:
 		max_hp = max(0, max_hp - value)
 		current_hp = min(current_hp, max_hp)
 		if get_parent().is_in_group("player"):
-			game_info.max_hp = max_hp
-			game_info.current_hp = current_hp
+			GameController.max_hp = max_hp
+			GameController.current_hp = current_hp
 		return true
 
 func increase_current_hp(value:int):
@@ -61,7 +60,7 @@ func increase_current_hp(value:int):
 		else:
 			current_hp+=value
 		if get_parent().is_in_group("player"):
-			game_info.current_hp = current_hp
+			GameController.current_hp = current_hp
 
 func increase_max_hp(value:int):
 	if value<0:
@@ -70,8 +69,8 @@ func increase_max_hp(value:int):
 		max_hp+=value
 		current_hp+=value
 		if get_parent().is_in_group("player"):
-			game_info.current_hp = current_hp
-			game_info.max_hp = max_hp
+			GameController.current_hp = current_hp
+			GameController.max_hp = max_hp
 
 func reset_hp():
 	current_hp=0
