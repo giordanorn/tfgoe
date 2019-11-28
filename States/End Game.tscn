@@ -26,11 +26,11 @@ margin_left = 223.5
 margin_top = 226.5
 margin_right = 800.5
 margin_bottom = 325.5
-text = "Parabens meu consagrado vc salvou o mundo god dms topzera continue assim que vc
- passa em fmc2 quero ser assim um dia vc cresceu e se tornou uma inspiraçao para todos
- nos, eu ainda lembro quando eu segurava vc nos braços e falava 
-\"ALA O MLKIN N VAI SER NGM NA VIDA KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK\"
- saudades daquele tempo mas agora vc e um heroi parabens ae boa sorte na vida
-forte abraço"
+text = "Você finalmente alcança o interior do castelo, após passar pela abominação encontrada
+guardando sua entrada. Não para sua surpresa, o interior da fortaleza encontra-se também
+infestado de criaturas do submundo, mas estas indicam algo muito pior: influência necromântica,
+confirmando que os demônios estão definitivamente por trás da ruptura do selo.
+Continua na v0.2...
+Obrigado por jogar! Deixa o like e se inscreve ae!"
 [connection signal="button_up" from="HUD/Quit" to="." method="_on_Quit_button_up"]
 [connection signal="button_up" from="HUD/Menu" to="." method="_on_Menu_button_up"]
