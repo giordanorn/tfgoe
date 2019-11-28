@@ -1,4 +1,4 @@
-[gd_scene load_steps=68 format=2]
+[gd_scene load_steps=67 format=2]
 
 [ext_resource path="res://Sprites/Tileset/Forest/main_background.png" type="Texture" id=1]
 [ext_resource path="res://Sprites/Tileset/Forest/bgrd_tree1.png" type="Texture" id=2]
@@ -7,8 +7,7 @@
 [ext_resource path="res://Sprites/Tileset/Forest/env_ground.png" type="Texture" id=5]
 [ext_resource path="res://Characters/Enemies/Orcs/OrcBrawler.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Characters/Enemies/Orcs/OrcPursuer.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Characters/Enemies/Orcs/OrcThrower.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Utils/WarpZone.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Utils/WarpZone.tscn" type="PackedScene" id=8]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 16, 0, 16, 8, 12, 8, 4, 4, 0, 0 )
@@ -973,11 +972,10 @@ position = Vector2( 40, 4 )
 position = Vector2( 72, -12 )
 
 [node name="Enemies 3" type="Node2D" parent="."]
-editor/display_folded = true
 position = Vector2( 876, 112 )
 
-[node name="OrcThrower" parent="Enemies 3" instance=ExtResource( 8 )]
-position = Vector2( -132, 24 )
+[node name="OrcPursuer" parent="Enemies 3" instance=ExtResource( 7 )]
+position = Vector2( -128, 28 )
 
 [node name="OrcBrawler" parent="Enemies 3" instance=ExtResource( 6 )]
 position = Vector2( 16, 24 )
@@ -985,6 +983,6 @@ position = Vector2( 16, 24 )
 [node name="OrcBrawler2" parent="Enemies 3" instance=ExtResource( 6 )]
 position = Vector2( -16, 24 )
 
-[node name="WarpZone" parent="." instance=ExtResource( 9 )]
+[node name="WarpZone" parent="." instance=ExtResource( 8 )]
 position = Vector2( 1268.03, 127.618 )
 scene_path = "res://States/Stages/Forest/Stage2.tscn"

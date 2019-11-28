@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Scripts/Character.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Characters/Bodies/orc_shaman_idle_anim_f0.png" type="Texture" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://Sprites/Characters/Bodies/orc_shaman_run_anim_f3.png" type="Texture" id=9]
 [ext_resource path="res://Utils/Health.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Utils/ContactAttack.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Scripts/Shooter.gd" type="Script" id=12]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 6, 8 )
@@ -30,9 +31,9 @@ animations = [ {
 
 [node name="OrcThrower" type="KinematicBody2D" groups=[
 "character",
-"orc",
 "thrower",
 "enemy",
+"orc",
 ]]
 collision_layer = 2
 collision_mask = 0
@@ -46,9 +47,14 @@ shape = SubResource( 1 )
 position = Vector2( 0, -2 )
 frames = SubResource( 2 )
 animation = "idle"
-frame = 1
+frame = 3
 playing = true
 
 [node name="Health" parent="." instance=ExtResource( 10 )]
 
 [node name="ContactAttack" parent="." instance=ExtResource( 11 )]
+
+[node name="Shooter" type="Node2D" parent="."]
+position = Vector2( -12, 0 )
+script = ExtResource( 12 )
+waiting_time = 2.0
