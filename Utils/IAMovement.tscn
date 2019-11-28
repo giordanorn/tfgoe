@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Scripts/Movement/Movement.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/Movement/IAController.gd" type="Script" id=2]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 104.0
 
 [node name="Movement" type="Node2D"]
 script = ExtResource( 1 )
@@ -9,9 +12,17 @@ speed = 30
 
 [node name="Controller" type="Node2D" parent="."]
 script = ExtResource( 2 )
+chase_speed = 80
 
 [node name="FlipDirection" type="Timer" parent="Controller"]
 wait_time = 3.0
 one_shot = true
 autostart = true
+
+[node name="DetectArea" type="Area2D" parent="Controller"]
+
+[node name="Shape" type="CollisionShape2D" parent="Controller/DetectArea"]
+shape = SubResource( 1 )
 [connection signal="timeout" from="Controller/FlipDirection" to="Controller" method="_on_Timer_timeout"]
+[connection signal="body_entered" from="Controller/DetectArea" to="Controller" method="_on_DetectArea_body_entered"]
+[connection signal="body_exited" from="Controller/DetectArea" to="Controller" method="_on_DetectArea_body_exited"]
