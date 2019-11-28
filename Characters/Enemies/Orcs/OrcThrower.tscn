@@ -31,9 +31,11 @@ animations = [ {
 [node name="OrcThrower" type="KinematicBody2D" groups=[
 "character",
 "orc",
-"enemy",
 "thrower",
+"enemy",
 ]]
+collision_layer = 2
+collision_mask = 0
 script = ExtResource( 1 )
 nickname = "Orc Thrower"
 
@@ -44,7 +46,7 @@ shape = SubResource( 1 )
 position = Vector2( 0, -2 )
 frames = SubResource( 2 )
 animation = "idle"
-frame = 2
+frame = 1
 playing = true
 
 [node name="Health" parent="." instance=ExtResource( 10 )]

@@ -73,8 +73,8 @@ animations = [ {
 
 [node name="Knight" type="KinematicBody2D" groups=[
 "character",
-"knight",
 "player",
+"knight",
 ]]
 script = ExtResource( 1 )
 nickname = "Knight"
@@ -93,8 +93,11 @@ playing = true
 [node name="Movement" parent="." instance=ExtResource( 11 )]
 
 [node name="Health" parent="." instance=ExtResource( 12 )]
+current_hp = 100
+max_hp = 100
 
 [node name="FrontAttack" parent="." instance=ExtResource( 13 )]
+editor/display_folded = true
 scale = Vector2( 1.5, 1.5 )
 
 [node name="AnimatedSprite" parent="FrontAttack/HitArea" index="1"]
@@ -102,6 +105,7 @@ position = Vector2( 0, -4 )
 scale = Vector2( 0.04, 0.04 )
 frames = SubResource( 3 )
 animation = "KnightBaseAttack"
+frame = 0
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
