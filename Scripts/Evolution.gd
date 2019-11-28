@@ -39,7 +39,7 @@ func _on_HealthButton_button_up():
 
 
 func _on_ASPDButton_button_up():
-	GameController.current_aspd["value"]-=0.02
+	GameController.current_aspd["value"]-=(GameController.current_aspd["value"]/10)
 	GameController.xp-=GameController.current_aspd["cost"]
 	GameController.current_aspd["cost"]+=1
 	update_text()

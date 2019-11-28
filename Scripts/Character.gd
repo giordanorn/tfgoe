@@ -20,14 +20,14 @@ func _ready() -> void:
 func _process(delta) -> void:
 	if self.is_in_group("player") and !GameController.starting_stats_defined:
 		GameController.current_mspd["value"] = get_node("Movement").speed
-		GameController.current_aspd["value"] = get_node("FrontAttack").animation_time
+		GameController.current_aspd["value"] = get_node("FrontAttack").cooldown
 		GameController.current_damage["value"] = get_node("FrontAttack").strength
 		GameController.max_hp["value"] = get_node("Health").max_hp
 		GameController.current_hp = get_node("Health").current_hp
 		GameController.starting_stats_defined = true
 	if self.is_in_group("player") and GameController.evolving:
 		get_node("Movement").speed = GameController.current_mspd["value"]
-		get_node("FrontAttack").animation_time = GameController.current_aspd["value"]
+		get_node("FrontAttack").cooldown = GameController.current_aspd["value"]
 		get_node("FrontAttack").strength = GameController.current_damage["value"]
 		get_node("Health").max_hp = GameController.max_hp["value"]
 		get_node("Health").current_hp = GameController.current_hp
